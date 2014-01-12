@@ -14,7 +14,7 @@
 <h1>Posts</h1>
 
 @if (!count($posts))
-No posts :(
+No posts yet.
 @endif
 <ul>
 @foreach ($posts as $P)

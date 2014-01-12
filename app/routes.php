@@ -11,7 +11,7 @@
 |
 */
 
-$SLUG = '[A-Za-z0-9-]+';
+define('SLUG','[A-Za-z0-9-]+');
 
 //users
 Route::get('login', ['uses' => 'AuthController@login']);
@@ -24,4 +24,4 @@ Route::get('/blog', ['uses' => 'PostController@index']);
 
 Route::resource('posts','PostController');
 Route::get('post/{slug}', ['uses' => 'PostController@display'])
-	->where('slug', $SLUG);
+	->where('slug', SLUG);

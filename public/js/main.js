@@ -1,1 +1,9 @@
-hello world
+require(function(){
+
+function init() {
+
+}
+
+$(init);
+
+});

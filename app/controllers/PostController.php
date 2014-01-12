@@ -4,7 +4,7 @@ class PostController extends BaseController {
 
 	public function index()
 	{
-		$posts = []; //Post::all();//published();
+		$posts = Post::all();
 
 		return
 			View::make('posts.index')
@@ -18,7 +18,8 @@ class PostController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return
+			View::make('posts.create');
 	}
 
 	/**
@@ -28,7 +29,17 @@ class PostController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$data = Input::except('_method','_token');
+
+		//handle slug
+
+		if (Post::validate($data)->passes()) {
+			Post::insert($data);
+		} else {
+			exit('Post not filled out');
+		}
+
+		return Redirect::to('posts');
 	}
 
 	/**
@@ -39,7 +50,11 @@ class PostController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$post = Post::findOrFail($id);
+
+		return
+			View::make('posts.show')
+				->with('post', $post);
 	}
 
 	/**
