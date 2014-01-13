@@ -5,6 +5,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		dir: {
+			libs: 'public/js/libs/'
+		},
+
 		concat: {
 			options: {
 				nonull: true,
@@ -14,11 +18,12 @@ module.exports = function(grunt) {
 			},
 			libs: {
 				src: [
-					'public/js/libs/jquery.min.js',
-					'public/js/libs/lodash.min.js',
-					'public/js/libs/backbone-min.js'
+					'<%= dir.libs %>json2.min.js',
+					'<%= dir.libs %>jquery.min.js',
+					'<%= dir.libs %>lodash.min.js',
+					'<%= dir.libs %>backbone-min.js'
 					],
-				dest: 'public/js/libs/libs.js'
+				dest: '<%= dir.libs %>libs.js'
 			}
 		},
 		uglify: {
@@ -51,8 +56,8 @@ module.exports = function(grunt) {
 		compass: {
 			dist: {
 				options: {
-					sassDir: 'css/sass/',
-					cssDir: 'css'
+					sassDir: 'public/css/sass/',
+					cssDir: 'public/css'
 				}
 			}
 		},
@@ -61,7 +66,7 @@ module.exports = function(grunt) {
 				livereload: true
 			},
 			sass: {
-				files: ['css/sass/*.scss'],
+				files: ['public/css/sass/*.scss'],
 				tasks: ['compass:dist'],
 				options: {
 				}

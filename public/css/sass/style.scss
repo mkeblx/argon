@@ -1,0 +1,131 @@
+@import "compass/reset";
+
+/* variables */
+
+html,body {
+ font-family: 'Roboto', sans-serif;
+}
+
+#cli {
+	font-family: monospace;
+	font-size: 32px;
+	line-height: 32px;
+	margin: 0px; 
+}
+
+#char {
+	display: inline-block;
+	width: 15px;
+	height: 30px;
+	background-color: rgba(0,0,0,1);
+	-webkit-animation: blink 1.4s step-end infinite;
+	animation: blink 1.4s step-end infinite;
+}
+
+.sec {
+	margin-bottom: 30px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: 100;
+	margin-bottom: 6px;
+	padding: 0px;
+}
+
+h1 {
+	font-size: 30px;
+	line-height: 38px;
+	font-weight: 300;
+}
+
+h2 {
+	font-size: 30px;
+	line-height: 30px;
+}
+
+h3 {
+	font-size: 22px;
+	line-height: 22px;
+}
+
+p {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+/* basic layout */
+
+#container {
+	margin: 20px;
+	font-weight: 300;
+	width: 940px;
+}
+
+#sidebar {
+	width: 300px;
+	float: right;
+}
+
+#head {
+
+}
+
+#primary {
+	width: 620px;
+
+	font-weight: 300;
+	color: #111;
+}
+
+.post {
+
+	.head {
+		h1 {
+			display: inline-block;
+			font-weight: 500;
+			margin-right: 6px;
+		}
+	}
+
+	.date.published {
+		display: inline-block;
+		vertical-align: top;
+		text-transform: uppercase;
+		line-height: 38px;
+		font-size: 16px;
+	}
+}
+
+#foot { 
+	margin-top: 80px;
+}
+
+a {
+	color: #000;
+
+	&:visited {
+		color: #000;
+	}
+}
+
+/* animations */
+
+@-webkit-keyframes blink {
+		0% {
+				opacity: 1;
+		}
+
+		50% {
+				opacity: 0;
+		}
+}
+
+@keyframes blink {
+		0% {
+				opacity: 1;
+		}
+
+		50% {
+				opacity: 0;
+		}
+}

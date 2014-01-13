@@ -1,0 +1,200 @@
+/* line 17, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../home/ubuntu/.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* variables */
+/* line 5, sass/style.scss */
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 9, sass/style.scss */
+#cli {
+  font-family: monospace;
+  font-size: 32px;
+  line-height: 32px;
+  margin: 0px;
+}
+
+/* line 16, sass/style.scss */
+#char {
+  display: inline-block;
+  width: 15px;
+  height: 30px;
+  background-color: black;
+  -webkit-animation: blink 1.4s step-end infinite;
+  animation: blink 1.4s step-end infinite;
+}
+
+/* line 25, sass/style.scss */
+.sec {
+  margin-bottom: 30px;
+}
+
+/* line 29, sass/style.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  margin-bottom: 6px;
+  padding: 0px;
+}
+
+/* line 35, sass/style.scss */
+h1 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+/* line 41, sass/style.scss */
+h2 {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* line 46, sass/style.scss */
+h3 {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+/* line 51, sass/style.scss */
+p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* basic layout */
+/* line 58, sass/style.scss */
+#container {
+  margin: 20px;
+  font-weight: 300;
+  width: 940px;
+}
+
+/* line 64, sass/style.scss */
+#sidebar {
+  width: 300px;
+  float: right;
+}
+
+/* line 73, sass/style.scss */
+#primary {
+  width: 620px;
+  font-weight: 300;
+  color: #111;
+}
+
+/* line 83, sass/style.scss */
+.post .head h1 {
+  display: inline-block;
+  font-weight: 500;
+  margin-right: 6px;
+}
+/* line 90, sass/style.scss */
+.post .date.published {
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  line-height: 38px;
+  font-size: 16px;
+}
+
+/* line 99, sass/style.scss */
+#foot {
+  margin-top: 80px;
+}
+
+/* line 103, sass/style.scss */
+a {
+  color: #000;
+}
+/* line 106, sass/style.scss */
+a:visited {
+  color: #000;
+}
+
+/* animations */
+@-webkit-keyframes blink {
+  /* line 114, sass/style.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 118, sass/style.scss */
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  /* line 124, sass/style.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 128, sass/style.scss */
+  50% {
+    opacity: 0;
+  }
+}

@@ -3,17 +3,14 @@
 class Post extends Eloquent {
 
 	protected $table = 'posts';
+	protected $softDelete = true;
 
-	protected $fillable = ['title','slug','content','type','status','publish_date'];
+	protected $fillable = ['title','slug','content','type','status','published_at'];
 
 	protected $STATUS = [
 		0 => 'draft',
 		1 => 'published'
 		];
-
-	public function comments() {
-		return $this->hasMany('Comment');
-	}
 
 	public function tags() {
 		return $this->belongsToMany('Tag');
@@ -30,16 +27,13 @@ class Post extends Eloquent {
 		return $validator;
 	}
 
-	public function findBySlug($slug) {
-		return Post::where('slug',$slug)->first();
-	}
-
 	public function getParsedContentAttribute() {
 		return 'parsed'; //$this->attributes['content']; //parse
 	}
 
 	public function scopePublished($query) {
-		return $query->where('status', 1);
+		$now = \Carbon\Carbon::now();
+		return $query->where('published_at', '<', $now);
 	}
 
 	public function scopeDraft($query) {

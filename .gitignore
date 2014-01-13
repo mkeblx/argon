@@ -5,4 +5,5 @@
 composer.phar
 composer.lock
 .DS_Store
+.sass_cache
 Thumbs.db

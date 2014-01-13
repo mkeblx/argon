@@ -15,6 +15,7 @@ class CreatePosts extends Migration {
 			$t->text('content');
 			$t->string('status', 32);
 			$t->dateTime('published_at');
+			$t->softDeletes();
 			$t->timestamps();
 		});
 	}

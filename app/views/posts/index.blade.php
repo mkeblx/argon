@@ -1,13 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-	blog home
-@stop
-
-@section('sidebar')
-    @parent
-
-    <p>This is appended to the master sidebar.</p>
+	posts
 @stop
 
 @section('content')
@@ -17,8 +11,8 @@
 No posts yet.
 @endif
 <ul>
-@foreach ($posts as $P)
-<li><a href="{{ route('posts.show', $P->id) }}">{{ $P->title }}</a></li>
+@foreach ($posts as $p)
+<li><a href="{{ '/'.$p->slug.'/'.$p->id }}">{{ $p->title }}</a> <a href="{{ route('posts.edit', $p->id) }}">edit</a></li>
 @endforeach
 </li>
 

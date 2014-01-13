@@ -2,6 +2,18 @@
 
 class PostController extends BaseController {
 
+	public function blog()
+	{
+		$posts =
+			Post::published()
+				->orderBy('published_at', 'desc')
+				->get();
+
+		return
+			View::make('posts.blog')
+				->with('posts', $posts);
+	}
+
 	public function index()
 	{
 		$posts = Post::all();
@@ -11,30 +23,19 @@ class PostController extends BaseController {
 				->with('posts', $posts);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
 		return
 			View::make('posts.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
 		$data = Input::except('_method','_token');
 
-		//handle slug
-
 		if (Post::validate($data)->passes()) {
-			Post::insert($data);
+			$data['slug'] = Str::slug($data['title']);
+			Post::create($data);
 		} else {
 			exit('Post not filled out');
 		}
@@ -42,13 +43,7 @@ class PostController extends BaseController {
 		return Redirect::to('posts');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+	public function show($slug, $id)
 	{
 		$post = Post::findOrFail($id);
 
@@ -57,34 +52,27 @@ class PostController extends BaseController {
 				->with('post', $post);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
 	{
-		//
+		$post = Post::findOrFail($id);
+
+		return
+			View::make('posts.edit')
+				->with('post', $post);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
-		//
+		$data = Input::except('_method','_token');
+		
+		$data['slug'] = Str::slug($data['title']);
+		
+		Post::where('id','=',$id)
+			->update($data);
+
+		return Redirect::to('posts');
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
 		//
