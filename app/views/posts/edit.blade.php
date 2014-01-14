@@ -3,18 +3,21 @@
 @section('title') edit post @stop
 
 @section('content')
-<h1>Edit Post</h1>
 
 {{ Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'put']) }}
 
-{{ Form::text('title') }} <br>
+{{ Form::text('title') }}
 
-{{ Form::textarea('content') }} <br>
+<pre id="editor"></pre>
 
-{{ Form::text('published_at') }}
+{{ Form::hidden('content', null, ['id' => 'post-content']) }}
+
+{{ Form::text('published_at', null, ['class' => 'datetime']) }}
 
 {{ Form::submit('Save') }}
 
 {{ Form::close() }}
+
+@include('partials/editor')
 
 @stop

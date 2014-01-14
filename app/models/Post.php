@@ -28,11 +28,11 @@ class Post extends Eloquent {
 	}
 
 	public function getParsedContentAttribute() {
-		return 'parsed'; //$this->attributes['content']; //parse
+		return $this->attributes['content'];
 	}
 
 	public function scopePublished($query) {
-		$now = \Carbon\Carbon::now();
+		$now = Date::now();
 		return $query->where('published_at', '<', $now);
 	}
 

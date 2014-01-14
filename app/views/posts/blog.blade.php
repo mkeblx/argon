@@ -1,8 +1,6 @@
 @extends('layouts.default')
 
-@section('title')
-	blog
-@stop
+@section('title') blog @stop
 
 @section('content')
 <h1>blog</h1>

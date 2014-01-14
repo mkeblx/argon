@@ -1,35 +1,23 @@
 @extends('layouts.default')
 
-@section('title')
-	create post
-@stop
+@section('title') create post @stop
 
 @section('content')
-<h1>Posts</h1>
 
-<?
-$now = \Carbon\Carbon::now();
-?>
+{{ Form::open(['route' => 'posts.store', 'class' => 'post-form']) }}
 
-{{ Form::open(['route' => 'posts.store']) }}
+{{ Form::text('title', null, ['placeholder' => 'title']) }}
 
-{{ Form::text('title') }} <br>
+<pre id="editor"></pre>
 
-{{ Form::textarea('content', null, ['id' => 'editor']) }}
+{{ Form::hidden('content', null, ['id' => 'post-content']) }}
 
-{{ Form::text('published_at', $now) }}
+{{ Form::text('published_at', Date::now(), ['class' => 'datetime']) }}
 
-{{ Form::submit('Save') }}
+{{ Form::submit('Create') }}
 
 {{ Form::close() }}
 
-
-<script src="/js/libs/ace.js"></script>
-
-<script>
-$(function(){
-	var editor = ace.edit('editor');
-});
-</script>
+@include('partials/editor')
 
 @stop

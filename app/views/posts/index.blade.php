@@ -1,11 +1,9 @@
 @extends('layouts.default')
 
-@section('title')
-	posts
-@stop
+@section('title') posts @stop
 
 @section('content')
-<h1>Posts</h1>
+<h1>posts</h1>
 
 @if (!count($posts))
 No posts yet.

@@ -6,9 +6,13 @@ class UserTableSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$users = [];
-
-		DB::table('users')->insert($users);
+		User::create([
+			'id' => 1,
+			'username' => 'argon',
+			'password' => Hash::make('password'),
+			'created_at' => new DateTime,
+			'updated_at' => new DateTime
+		]);
 	}
 
 }

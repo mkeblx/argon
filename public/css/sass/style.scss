@@ -2,6 +2,10 @@
 
 /* variables */
 
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
 html,body {
  font-family: 'Roboto', sans-serif;
 }
@@ -50,7 +54,16 @@ h3 {
 
 p {
 	font-size: 16px;
-	line-height: 22px;
+	line-height: 26px;
+	margin-bottom: 6px;
+}
+
+a {
+	color: #000;
+
+	&:visited {
+		color: #000;
+	}
 }
 
 /* basic layout */
@@ -77,6 +90,37 @@ p {
 	color: #111;
 }
 
+#foot { 
+	margin-top: 80px;
+}
+
+/* forms */
+
+input {
+
+}
+
+input[name=title] {
+	width: 100%;
+	font-size: 30px;
+	font-weight: 500;
+	border: 1px solid #ccc;
+	padding: 6px 8px;
+}
+
+#editor { /* ace */
+	width: 100%;
+	height: 400px;
+	margin: 6px 0px;
+}
+
+input.datetime {
+	display: block;
+	margin-bottom: 10px;
+}
+
+/* post display */
+
 .post {
 
 	.head {
@@ -89,22 +133,8 @@ p {
 
 	.date.published {
 		display: inline-block;
-		vertical-align: top;
 		text-transform: uppercase;
-		line-height: 38px;
 		font-size: 16px;
-	}
-}
-
-#foot { 
-	margin-top: 80px;
-}
-
-a {
-	color: #000;
-
-	&:visited {
-		color: #000;
 	}
 }
 

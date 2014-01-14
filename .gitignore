@@ -2,8 +2,10 @@
 /node_modules
 /vendor
 /old
+*.log
 composer.phar
 composer.lock
 .DS_Store
-.sass_cache
+.Trashes
+.sass-cache
 Thumbs.db

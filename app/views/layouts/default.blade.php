@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>@yield('title')</title>
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700">
-<script src="/dist/js/libs.min.js"></script>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700">
+<script src="/js/dist/libs.min.js"></script>
 <script data-main="/js/main" src="/js/libs/require.js"></script>
 <head>
 <body>

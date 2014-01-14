@@ -15,16 +15,16 @@ define('SLUG','[A-Za-z0-9-]+');
 define('ID', '[a-f0-9]+');
 
 //auth
-Route::get('login', ['uses' => 'AuthController@login']);
-Route::post('login', ['uses' => 'AuthController@doLogin']);
+Route::get('login', ['as' => 'login', 'uses' => 'AuthController@login']);
+Route::post('login', ['as' => 'doLogin', 'uses' => 'AuthController@doLogin']);
 Route::get('logout', ['uses' => 'AuthController@logout']);
 
 //blog
-Route::get('/', ['uses' => 'PostController@home']);
+Route::get('/', ['uses' => 'PostController@blog']);
 Route::get('/blog', ['uses' => 'PostController@blog']);
 Route::get('{slug}/{id}', ['uses' => 'PostController@show'])
 	->where(['slug' => SLUG, 'id' => ID]);
 
-//Route::group(['before' => 'auth'], function(){
+Route::group(['before' => 'auth'], function(){
 	Route::resource('posts','PostController');
-//});
+});
