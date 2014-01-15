@@ -190,13 +190,17 @@ input.datetime {
 }
 
 /* post display */
-/* line 127, sass/style.scss */
+/* line 126, sass/style.scss */
+.post .head {
+  margin-bottom: 10px;
+}
+/* line 129, sass/style.scss */
 .post .head h1 {
   display: inline-block;
   font-weight: 500;
   margin-right: 6px;
 }
-/* line 134, sass/style.scss */
+/* line 136, sass/style.scss */
 .post .date.published {
   display: inline-block;
   text-transform: uppercase;
@@ -205,24 +209,24 @@ input.datetime {
 
 /* animations */
 @-webkit-keyframes blink {
-  /* line 144, sass/style.scss */
+  /* line 146, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 148, sass/style.scss */
+  /* line 150, sass/style.scss */
   50% {
     opacity: 0;
   }
 }
 
 @keyframes blink {
-  /* line 154, sass/style.scss */
+  /* line 156, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 158, sass/style.scss */
+  /* line 160, sass/style.scss */
   50% {
     opacity: 0;
   }

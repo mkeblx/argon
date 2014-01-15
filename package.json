@@ -1,5 +1,5 @@
 {
-  "name": "blocks",
+  "name": "argon",
   "version": "0.1.1",
   "devDependencies": {
     "grunt": "~0.4.2",

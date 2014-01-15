@@ -4,7 +4,8 @@
 	"keywords": [],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+		"hashids/hashids": "*"
 	},
 	"autoload": {
 		"classmap": [
@@ -13,7 +14,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+			"app/lib"
 		]
 	},
 	"scripts": {

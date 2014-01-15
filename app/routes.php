@@ -12,7 +12,7 @@
 */
 
 define('SLUG','[A-Za-z0-9-]+');
-define('ID', '[a-f0-9]+');
+define('ID', '[a-zA-Z0-9]+');
 
 //auth
 Route::get('login', ['as' => 'login', 'uses' => 'AuthController@login']);

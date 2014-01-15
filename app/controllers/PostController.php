@@ -47,6 +47,17 @@ class PostController extends BaseController {
 
 	public function show($slug, $id)
 	{
+		$c = Config::get('hashids');
+		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
+
+		$id = strtolower($id);
+
+		$de = $hashids->decrypt($id);
+		if (is_array($de) && count($de))
+			$id = $de[0];
+		else
+			App::abort(404);
+
 		$post = Post::findOrFail($id);
 
 		return
