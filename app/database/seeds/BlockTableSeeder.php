@@ -6,6 +6,7 @@ class BlockTableSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+		return;
 		$blocks = [];
 
 		DB::table('blocks')->insert($blocks);

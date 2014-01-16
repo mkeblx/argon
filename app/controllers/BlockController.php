@@ -6,14 +6,12 @@ class BlockController extends BaseController {
 	{
 		$blocks = Block::all();
 
+		if (Request::ajax())
+			return $blocks;
+
 		return
 			View::make('blocks.index')
 				->with('blocks', $blocks);
-	}
-
-	public function create()
-	{
-		//
 	}
 
 	public function store()
@@ -30,24 +28,10 @@ class BlockController extends BaseController {
 		return Redirect::to('posts');
 	}
 
-	public function show($id)
+	public function get($id)
 	{
-		//
-	}
-
-	public function edit($id)
-	{
-		//
-	}
-
-	public function update($id)
-	{
-		//
-	}
-
-	public function destroy($id)
-	{
-		//
+		$block = Block::get($id);
+		return $block;
 	}
 
 }

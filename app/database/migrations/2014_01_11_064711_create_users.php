@@ -12,7 +12,7 @@ class CreateUsers extends Migration {
 			$t->increments('id');
 			$t->string('username', 32);
 			$t->string('password', 64);
-			$t->integer('role');
+			$t->string('role', 32);
 			$t->timestamps();
 		});
 	}

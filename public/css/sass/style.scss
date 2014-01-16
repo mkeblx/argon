@@ -1,6 +1,7 @@
 @import "compass/reset";
 
 /* variables */
+$dark: #111;
 
 *, *:before, *:after {
 	box-sizing: border-box;
@@ -66,6 +67,13 @@ a {
 	}
 }
 
+a.btn, .btn {
+	text-decoration: none;
+
+	padding: 4px;
+	outline: 1px solid #111;
+}
+
 /* basic layout */
 
 #container {
@@ -92,6 +100,26 @@ a {
 
 #foot { 
 	margin-top: 80px;
+}
+
+/* post list */
+
+ul.posts {
+
+	li {
+		margin-bottom: 6px;
+
+		a {
+			text-decoration: none;
+			border-bottom: 1px solid #fff;
+			transition: border 100ms linear;
+
+			&:hover {
+				border-bottom: 1px solid #111;
+			}
+		}
+	}
+
 }
 
 /* forms */
@@ -121,14 +149,14 @@ input.datetime {
 
 /* post display */
 
-.post {
+div.post {
 
 	.head {
 		margin-bottom: 10px;
 
 		h1 {
 			display: inline-block;
-			font-weight: 500;
+			font-weight: 100;
 			margin-right: 6px;
 		}
 	}
@@ -138,6 +166,46 @@ input.datetime {
 		text-transform: uppercase;
 		font-size: 16px;
 	}
+}
+
+/* admin */
+
+#admin-bar {
+	background: #111;
+	font-weight: 300;
+	height: 36px;
+
+	color: #fff !important;
+
+	&.admin {
+		a.btn {
+			color: #fff;
+			outline: none;
+			padding: 8px;
+		}
+	}
+}
+
+.admin {
+
+}
+
+/* misc */
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.hide {
+	display: none;
+}
+
+.ninja {
+	visibility: hidden;
 }
 
 /* animations */

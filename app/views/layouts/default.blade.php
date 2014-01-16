@@ -10,6 +10,11 @@
 <script data-main="/js/main" src="/js/libs/require.js"></script>
 <head>
 <body>
+<? if (Auth::check()) : ?>
+<div id="admin-bar" class="admin">
+	<a class="btn right" href="{{ route('logout') }}">logout</a>
+</div>
+<? endif; ?>
 <div id="container">
 		
 @section('sidebar')

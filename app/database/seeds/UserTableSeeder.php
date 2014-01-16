@@ -6,13 +6,16 @@ class UserTableSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		User::create([
+		$root = [
 			'id' => 1,
 			'username' => 'argon',
 			'password' => Hash::make('password'),
+			'role' => 'admin',
 			'created_at' => new DateTime,
 			'updated_at' => new DateTime
-		]);
+		];
+
+		User::create($user);
 	}
 
 }

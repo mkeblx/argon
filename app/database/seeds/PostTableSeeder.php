@@ -6,6 +6,7 @@ class PostTableSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+		return;
 		$posts = [];
 
 		DB::table('posts')->insert($posts);

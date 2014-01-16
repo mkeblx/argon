@@ -52,6 +52,11 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+//404
+App::missing(function(Exception $exception){
+	return Response::view('errors.missing', array(), 404);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
@@ -80,4 +85,9 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+// custom
+
+require app_path().'/events.php';
+require app_path().'/helpers.php';
 

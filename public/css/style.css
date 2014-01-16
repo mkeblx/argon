@@ -64,17 +64,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* variables */
-/* line 5, sass/style.scss */
+/* line 6, sass/style.scss */
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-/* line 9, sass/style.scss */
+/* line 10, sass/style.scss */
 html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* line 13, sass/style.scss */
+/* line 14, sass/style.scss */
 #cli {
   font-family: monospace;
   font-size: 32px;
@@ -82,7 +82,7 @@ html, body {
   margin: 0px;
 }
 
-/* line 20, sass/style.scss */
+/* line 21, sass/style.scss */
 #char {
   display: inline-block;
   width: 15px;
@@ -92,81 +92,104 @@ html, body {
   animation: blink 1.4s step-end infinite;
 }
 
-/* line 29, sass/style.scss */
+/* line 30, sass/style.scss */
 .sec {
   margin-bottom: 30px;
 }
 
-/* line 33, sass/style.scss */
+/* line 34, sass/style.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
   margin-bottom: 6px;
   padding: 0px;
 }
 
-/* line 39, sass/style.scss */
+/* line 40, sass/style.scss */
 h1 {
   font-size: 30px;
   line-height: 38px;
   font-weight: 300;
 }
 
-/* line 45, sass/style.scss */
+/* line 46, sass/style.scss */
 h2 {
   font-size: 30px;
   line-height: 30px;
 }
 
-/* line 50, sass/style.scss */
+/* line 51, sass/style.scss */
 h3 {
   font-size: 22px;
   line-height: 22px;
 }
 
-/* line 55, sass/style.scss */
+/* line 56, sass/style.scss */
 p {
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 6px;
 }
 
-/* line 61, sass/style.scss */
+/* line 62, sass/style.scss */
 a {
   color: #000;
 }
-/* line 64, sass/style.scss */
+/* line 65, sass/style.scss */
 a:visited {
   color: #000;
 }
 
+/* line 70, sass/style.scss */
+a.btn, .btn {
+  text-decoration: none;
+  padding: 4px;
+  outline: 1px solid #111;
+}
+
 /* basic layout */
-/* line 71, sass/style.scss */
+/* line 79, sass/style.scss */
 #container {
   margin: 20px;
   font-weight: 300;
   width: 940px;
 }
 
-/* line 77, sass/style.scss */
+/* line 85, sass/style.scss */
 #sidebar {
   width: 300px;
   float: right;
 }
 
-/* line 86, sass/style.scss */
+/* line 94, sass/style.scss */
 #primary {
   width: 620px;
   font-weight: 300;
   color: #111;
 }
 
-/* line 93, sass/style.scss */
+/* line 101, sass/style.scss */
 #foot {
   margin-top: 80px;
 }
 
+/* post list */
+/* line 109, sass/style.scss */
+ul.posts li {
+  margin-bottom: 6px;
+}
+/* line 112, sass/style.scss */
+ul.posts li a {
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+  transition: border 100ms linear;
+}
+/* line 117, sass/style.scss */
+ul.posts li a:hover {
+  border-bottom: 1px solid #111;
+}
+
 /* forms */
-/* line 103, sass/style.scss */
+/* line 131, sass/style.scss */
 input[name=title] {
   width: 100%;
   font-size: 30px;
@@ -175,7 +198,7 @@ input[name=title] {
   padding: 6px 8px;
 }
 
-/* line 111, sass/style.scss */
+/* line 139, sass/style.scss */
 #editor {
   /* ace */
   width: 100%;
@@ -183,50 +206,86 @@ input[name=title] {
   margin: 6px 0px;
 }
 
-/* line 117, sass/style.scss */
+/* line 145, sass/style.scss */
 input.datetime {
   display: block;
   margin-bottom: 10px;
 }
 
 /* post display */
-/* line 126, sass/style.scss */
-.post .head {
+/* line 154, sass/style.scss */
+div.post .head {
   margin-bottom: 10px;
 }
-/* line 129, sass/style.scss */
-.post .head h1 {
+/* line 157, sass/style.scss */
+div.post .head h1 {
   display: inline-block;
-  font-weight: 500;
+  font-weight: 100;
   margin-right: 6px;
 }
-/* line 136, sass/style.scss */
-.post .date.published {
+/* line 164, sass/style.scss */
+div.post .date.published {
   display: inline-block;
   text-transform: uppercase;
   font-size: 16px;
 }
 
+/* admin */
+/* line 173, sass/style.scss */
+#admin-bar {
+  background: #111;
+  font-weight: 300;
+  height: 36px;
+  color: #fff !important;
+}
+/* line 181, sass/style.scss */
+#admin-bar.admin a.btn {
+  color: #fff;
+  outline: none;
+  padding: 8px;
+}
+
+/* misc */
+/* line 195, sass/style.scss */
+.right {
+  float: right;
+}
+
+/* line 199, sass/style.scss */
+.left {
+  float: left;
+}
+
+/* line 203, sass/style.scss */
+.hide {
+  display: none;
+}
+
+/* line 207, sass/style.scss */
+.ninja {
+  visibility: hidden;
+}
+
 /* animations */
 @-webkit-keyframes blink {
-  /* line 146, sass/style.scss */
+  /* line 214, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 150, sass/style.scss */
+  /* line 218, sass/style.scss */
   50% {
     opacity: 0;
   }
 }
 
 @keyframes blink {
-  /* line 156, sass/style.scss */
+  /* line 224, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 160, sass/style.scss */
+  /* line 228, sass/style.scss */
   50% {
     opacity: 0;
   }

@@ -27,8 +27,7 @@ class PostController extends BaseController {
 
 	public function create()
 	{
-		return
-			View::make('posts.create');
+		return View::make('posts.create');
 	}
 
 	public function store()
@@ -50,7 +49,7 @@ class PostController extends BaseController {
 		$c = Config::get('hashids');
 		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
 
-		$id = strtolower($id);
+		$id = Str::lower($id);
 
 		$de = $hashids->decrypt($id);
 		if (is_array($de) && count($de))

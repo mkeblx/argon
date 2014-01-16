@@ -12,7 +12,8 @@ class AuthController extends BaseController {
 
 	public function doLogin() {
 		$credentials = Input::only('username', 'password');
-		if (Auth::attempt($credentials, true)) {
+		$remember = true;
+		if (Auth::attempt($credentials, $remember)) {
 			return Redirect::intended('/');
 		}
 		return Redirect::to('login');
@@ -20,6 +21,7 @@ class AuthController extends BaseController {
 
 	public function logout() {
 		Auth::logout();
+		return Redirect::to('/');
 	}
 
 }
