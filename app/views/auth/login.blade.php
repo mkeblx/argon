@@ -3,15 +3,14 @@
 @section('title') login @stop
 
 @section('content')
-<h1>login</h1>
 
 {{ Form::open(['route' => 'doLogin', 'class' => 'login-form']) }}
 
-{{ Form::text('username') }}
+{{ Form::text('username', null, ['placeholder' => 'username']) }}
 
-{{ Form::password('password') }}
+{{ Form::password('password', null, ['placeholder' => 'password']) }} <br>
 
-{{ Form::submit('Login') }}
+{{ Form::submit('login', ['class' => 'button']) }}
 
 {{ Form::close() }}
 

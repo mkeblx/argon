@@ -22,9 +22,10 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 //blog
 Route::get('/', ['uses' => 'PostController@blog']);
 Route::get('/blog', ['uses' => 'PostController@blog']);
-Route::get('{slug}/{id}', ['uses' => 'PostController@show'])
+Route::get('{slug}/{id}', ['uses' => 'PostController@display'])
 	->where(['slug' => SLUG, 'id' => ID]);
 
+Route::get('feed/{tag?}', ['as' => 'feed', 'uses' => 'PostController@feed']);
 
 Route::group(['before' => 'auth'], function(){
 	Route::resource('posts','PostController');

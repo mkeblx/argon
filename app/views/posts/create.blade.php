@@ -14,7 +14,7 @@
 
 {{ Form::text('published_at', Date::now(), ['class' => 'datetime']) }}
 
-{{ Form::submit('Create') }}
+{{ Form::submit('create') }}
 
 {{ Form::close() }}
 

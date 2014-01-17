@@ -2,29 +2,18 @@
 
 /* variables */
 $dark: #111;
+$light: #eee;
+
+$cWidth: 620px;
 
 *, *:before, *:after {
 	box-sizing: border-box;
 }
 
 html,body {
- font-family: 'Roboto', sans-serif;
-}
-
-#cli {
-	font-family: monospace;
-	font-size: 32px;
-	line-height: 32px;
-	margin: 0px; 
-}
-
-#char {
-	display: inline-block;
-	width: 15px;
-	height: 30px;
-	background-color: rgba(0,0,0,1);
-	-webkit-animation: blink 1.4s step-end infinite;
-	animation: blink 1.4s step-end infinite;
+ font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+ background-color: #fff;
+ color: $dark;
 }
 
 .sec {
@@ -38,19 +27,32 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-	font-size: 30px;
-	line-height: 38px;
-	font-weight: 300;
+	font-size: 28px;
+	line-height: 28px;
 }
 
 h2 {
-	font-size: 30px;
-	line-height: 30px;
+	font-size: 24px;
+	line-height: 24px;
 }
 
 h3 {
-	font-size: 22px;
-	line-height: 22px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 18px;
+}
+
+h5 {
+	font-size: 16px;
+	line-height: 16px;
+}
+
+h6 {
+
 }
 
 p {
@@ -60,10 +62,10 @@ p {
 }
 
 a {
-	color: #000;
+	color: $dark;
 
 	&:visited {
-		color: #000;
+		color: $dark;
 	}
 }
 
@@ -71,7 +73,7 @@ a.btn, .btn {
 	text-decoration: none;
 
 	padding: 4px;
-	outline: 1px solid #111;
+	outline: 0px solid $dark;
 }
 
 /* basic layout */
@@ -79,7 +81,7 @@ a.btn, .btn {
 #container {
 	margin: 20px;
 	font-weight: 300;
-	width: 940px;
+	width: 960px;
 }
 
 #sidebar {
@@ -92,7 +94,7 @@ a.btn, .btn {
 }
 
 #primary {
-	width: 620px;
+	width: 640px;
 
 	font-weight: 300;
 	color: #111;
@@ -111,11 +113,11 @@ ul.posts {
 
 		a {
 			text-decoration: none;
-			border-bottom: 1px solid #fff;
+			border-bottom: 1px solid $light;
 			transition: border 100ms linear;
 
 			&:hover {
-				border-bottom: 1px solid #111;
+				border-bottom: 1px solid $dark;
 			}
 		}
 	}
@@ -124,13 +126,14 @@ ul.posts {
 
 /* forms */
 
-input {
-
+input[type=text], input[type=password] {
+	font-size: 30px;
+	line-height: 30px;
+	padding: 6px 8px;
 }
 
 input[name=title] {
 	width: 100%;
-	font-size: 30px;
 	font-weight: 500;
 	border: 1px solid #ccc;
 	padding: 6px 8px;
@@ -147,16 +150,36 @@ input.datetime {
 	margin-bottom: 10px;
 }
 
+.login-form, #primary {
+	input {
+		margin-bottom: 6px;
+	}
+
+	input[type=submit] {
+		font-family: 'Roboto', sans-serif;
+		font-size: 30px;
+		line-height: 30px;
+		-webkit-appearance: none;
+		background: $dark;
+		color: $light;
+		border: none;
+		font-weight: 200 !important;
+		padding: 7px 9px 9px;
+	}
+}
+
 /* post display */
 
 div.post {
+	margin-bottom: 20px;
 
 	.head {
-		margin-bottom: 10px;
+		margin-bottom: 0px;
 
 		h1 {
 			display: inline-block;
-			font-weight: 100;
+			font-size: 36px;
+			line-height: 42px;
 			margin-right: 6px;
 		}
 	}
@@ -166,22 +189,74 @@ div.post {
 		text-transform: uppercase;
 		font-size: 16px;
 	}
+
+	.content {
+
+		h1,h2,h3,h4,h5,h6 {
+			margin-top: 16px;
+		}
+
+		h1 {
+			font-size: 26px;
+			line-height: 22px;
+			margin-bottom: 8px;
+		}
+
+		h2 {
+			font-size: 22px;
+			line-height: 22px;
+		}
+
+		h3 {
+			font-size: 20px;
+			line-height: 20px;
+		}
+
+		h4 {
+			font-size: 18px;
+			line-height: 18px;
+		}
+
+		img {
+			border: none;
+			margin: 10px 0px;
+			max-width: $cWidth;
+		}
+
+		ul {
+			margin: 10px 0px 10px;
+			padding-left: 6px;
+
+			li {
+				list-style-type: disc;
+				list-style-position: inside;
+				padding-bottom: 8px;
+			}
+		}
+
+		ol {
+
+		}
+
+	}
+
 }
 
 /* admin */
 
 #admin-bar {
-	background: #111;
+	background: $dark;
 	font-weight: 300;
+	padding: 9px 20px 0px;
 	height: 36px;
 
 	color: #fff !important;
 
 	&.admin {
 		a.btn {
-			color: #fff;
+			color: $light;
 			outline: none;
-			padding: 8px;
+			margin-top: 6px;
 		}
 	}
 }
@@ -206,6 +281,18 @@ div.post {
 
 .ninja {
 	visibility: hidden;
+}
+
+.char {
+	display: inline-block;
+	width: 15px;
+	height: 30px;
+	background-color: rgba(0,0,0,1);
+}
+
+.blink { /* oh, yes */
+	-webkit-animation: blink 1.4s step-end infinite;
+	animation: blink 1.4s step-end infinite;	
 }
 
 /* animations */

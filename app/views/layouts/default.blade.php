@@ -5,16 +5,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>@yield('title')</title>
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlightjs/default.min.css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700">
 <script src="/js/dist/libs.min.js"></script>
 <script data-main="/js/main" src="/js/libs/require.js"></script>
 <head>
 <body>
+@section('admin-bar')
 <? if (Auth::check()) : ?>
 <div id="admin-bar" class="admin">
-	<a class="btn right" href="{{ route('logout') }}">logout</a>
+	<a class="btn" href="/">argon</a>
+	@yield('admin')
+	<div class="right">
+	<a class="btn" href="{{ route('logout') }}">logout</a>
+	</div>
 </div>
 <? endif; ?>
+@show
 <div id="container">
 		
 @section('sidebar')
@@ -27,7 +34,7 @@
 </div>
 
 <div id="foot">
-
+@yield('foot')
 </div>
 </div>
 @include('ga')

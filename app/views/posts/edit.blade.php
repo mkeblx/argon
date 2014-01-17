@@ -4,7 +4,7 @@
 
 @section('content')
 
-{{ Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'put']) }}
+{{ Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'put', 'class' => 'post-form']) }}
 
 {{ Form::text('title') }}
 
@@ -14,7 +14,7 @@
 
 {{ Form::text('published_at', null, ['class' => 'datetime']) }}
 
-{{ Form::submit('Save') }}
+{{ Form::submit('save') }}
 
 {{ Form::close() }}
 

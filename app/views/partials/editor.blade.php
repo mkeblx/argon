@@ -4,6 +4,7 @@
 $(function(){
 	var editor = ace.edit('editor');
 	editor.setShowPrintMargin(0);
+	editor.setFontSize(15);
 	editor.getSession().setTabSize(2);
 	editor.getSession().setUseWrapMode(true);
 	//editor.setTheme("ace/theme/twilight");

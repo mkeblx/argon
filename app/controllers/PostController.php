@@ -9,20 +9,55 @@ class PostController extends BaseController {
 				->orderBy('published_at', 'desc')
 				->get();
 
+		if (Request::ajax())
+			return $posts;
+
+		Event::fire('post.blog');
+
 		return
 			View::make('posts.blog')
 				->with('posts', $posts);
 	}
 
+	public function feed($tag)
+	{
+		$NUM = 20;
+
+		$posts =
+			Post::published()
+				->orderBy('published_at', 'desc')
+				->take($NUM)
+				->get();
+
+		//feed gen
+		foreach ($posts as $post) {
+			
+		}
+
+		return $posts;
+	}
+
+	//REST
+
 	public function index()
 	{
 		$posts =
-			Post::orderBy('published_at', 'desc')
+			Post::published()
+				->orderBy('published_at', 'desc')
 				->get();
+
+		$drafts =
+			Post::draft()
+				->orderBy('updated_at', 'desc')
+				->get();
+
+		if (Request::ajax())
+			return $posts; //drafts
 
 		return
 			View::make('posts.index')
-				->with('posts', $posts);
+				->with('posts', $posts)
+				->with('drafts', $drafts);
 	}
 
 	public function create()
@@ -44,7 +79,7 @@ class PostController extends BaseController {
 		return Redirect::to('posts');
 	}
 
-	public function show($slug, $id)
+	public function display($slug, $id)
 	{
 		$c = Config::get('hashids');
 		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
@@ -58,6 +93,8 @@ class PostController extends BaseController {
 			App::abort(404);
 
 		$post = Post::findOrFail($id);
+
+		//Event::fire('post.display', [$post]);
 
 		return
 			View::make('posts.show')

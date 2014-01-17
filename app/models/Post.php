@@ -7,11 +7,6 @@ class Post extends Eloquent {
 
 	protected $fillable = ['title','slug','content','type','status','published_at'];
 
-	protected $STATUS = [
-		0 => 'draft',
-		1 => 'published'
-		];
-
 	public function tags() {
 		return $this->belongsToMany('Tag');
 	}
@@ -33,11 +28,12 @@ class Post extends Eloquent {
 
 	public function scopePublished($query) {
 		$now = Date::now();
-		return $query->where('published_at', '<', $now);
+		return $query->where('published_at', '<', $now)
+								 ->where('status', 'final');
 	}
 
 	public function scopeDraft($query) {
-		return $query->where('status', 0);
+		return $query->where('status', 'draft');
 	}
 
 }

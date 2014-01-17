@@ -1,11 +1,11 @@
 {
 	"name": "mkeblx/argon",
 	"description": "personal website framework",
-	"keywords": [],
+	"keywords": ["laravel","personal"],
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"hashids/hashids": "*"
+		"roumen/feed": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

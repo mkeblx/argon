@@ -7,6 +7,8 @@ function init() {
 
 	});
 
+	hljs.initHighlightingOnLoad();
+
 }
 
 $(init);
