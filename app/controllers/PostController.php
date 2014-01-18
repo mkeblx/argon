@@ -4,10 +4,13 @@ class PostController extends BaseController {
 
 	public function blog()
 	{
+		$POSTS_PER_PAGE = 16;
+
 		$posts =
 			Post::published()
 				->orderBy('published_at', 'desc')
-				->get();
+				->paginate($POSTS_PER_PAGE);
+		//		->get();
 
 		if (Request::ajax())
 			return $posts;
@@ -21,12 +24,12 @@ class PostController extends BaseController {
 
 	public function feed($tag)
 	{
-		$NUM = 20;
+		$NUM_POSTS = 16;
 
 		$posts =
 			Post::published()
 				->orderBy('published_at', 'desc')
-				->take($NUM)
+				->take($NUM_POSTS)
 				->get();
 
 		//feed gen
@@ -94,7 +97,7 @@ class PostController extends BaseController {
 
 		$post = Post::findOrFail($id);
 
-		//Event::fire('post.display', [$post]);
+		Event::fire('post.display', [$post]);
 
 		return
 			View::make('posts.show')

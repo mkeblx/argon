@@ -13,9 +13,8 @@ $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']
 
 @if (!count($posts))
 No posts yet.
-@elseif (1)
+@else
 
-<ul>
 @foreach ($posts as $post)
 <div class="post">
 
@@ -30,11 +29,12 @@ No posts yet.
 {{ $post->content }}
 </div>
 
+{{-- tags --}}
+
 </div>
 @endforeach
-</li>
 
-@else
+<?php echo $posts->links(); ?>
 
 @endif
 

@@ -3,10 +3,11 @@
 /* variables */
 $dark: #111;
 $light: #eee;
+$link: #006789;
 
 $cWidth: 620px;
 
-*, *:before, *:after {
+*, *:before, *:after { /* as it should be */
 	box-sizing: border-box;
 }
 
@@ -58,14 +59,19 @@ h6 {
 p {
 	font-size: 16px;
 	line-height: 26px;
-	margin-bottom: 6px;
+	margin-bottom: 8px;
+
+	&.lead {
+		font-size: 22px;
+		line-height: 30px;
+	}
 }
 
 a {
-	color: $dark;
+	color: $link;
 
 	&:visited {
-		color: $dark;
+		color: $link;
 	}
 }
 
@@ -74,6 +80,63 @@ a.btn, .btn {
 
 	padding: 4px;
 	outline: 0px solid $dark;
+}
+
+blockquote {
+	border-left: 3px solid $light;
+	padding: 8px 12px;
+	margin: 12px 0px;
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 100;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: 400;
+}
+
+pre {
+	font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,monospace;
+	font-size: 14px;
+	line-height: 18px;
+	margin: 16px 0px;
+}
+
+code {
+	
+}
+
+ul.pagination, ul.pager {
+
+	li {
+		display: inline-block;
+		padding: 4px;
+		text-transform: lowercase;
+
+		&:first-child {
+			padding-left: 0px;
+		}
+
+		&.disabled {
+			display: none;
+		}
+
+		a {
+			padding-bottom: 1px;
+			text-decoration: none;
+			border-bottom: 1px solid #fff;
+			transition: border 100ms linear;
+
+			&:hover {
+				border-bottom: 1px solid $dark;
+			}
+		}
+	}
+
 }
 
 /* basic layout */
@@ -171,16 +234,22 @@ input.datetime {
 /* post display */
 
 div.post {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 
 	.head {
-		margin-bottom: 0px;
+		margin-bottom: 10px;
 
 		h1 {
 			display: inline-block;
 			font-size: 36px;
 			line-height: 42px;
 			margin-right: 6px;
+
+			a {
+				color: $dark;
+				text-decoration: none;
+				border-bottom: 1px solid $dark;
+			}
 		}
 	}
 
@@ -238,6 +307,20 @@ div.post {
 
 		}
 
+		a {
+			padding-bottom: 1px;
+			border-bottom: 1px dotted #ccc;
+			text-decoration: none;
+
+			&:hover {
+				border-bottom: 1px dotted $link; 
+			}
+		}
+
+		img {
+
+		}
+
 	}
 
 }
@@ -275,6 +358,15 @@ div.post {
 	float: left;
 }
 
+.show {
+	display: block;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 .hide {
 	display: none;
 }
@@ -283,11 +375,8 @@ div.post {
 	visibility: hidden;
 }
 
-.char {
-	display: inline-block;
-	width: 15px;
-	height: 30px;
-	background-color: rgba(0,0,0,1);
+.ghost {
+	opacity: 0.334;
 }
 
 .blink { /* oh, yes */
@@ -298,21 +387,21 @@ div.post {
 /* animations */
 
 @-webkit-keyframes blink {
-		0% {
-				opacity: 1;
-		}
+	0% {
+		opacity: 1;
+	}
 
-		50% {
-				opacity: 0;
-		}
+	50% {
+		opacity: 0;
+	}
 }
 
 @keyframes blink {
-		0% {
-				opacity: 1;
-		}
+	0% {
+		opacity: 1;
+	}
 
-		50% {
-				opacity: 0;
-		}
+	50% {
+		opacity: 0;
+	}
 }

@@ -1,4 +1,4 @@
-require(function(){
+require([], function(){
 
 function init() {
 
@@ -7,7 +7,11 @@ function init() {
 
 	});
 
-	hljs.initHighlightingOnLoad();
+
+	$('pre code').each(function(i, e) {
+		console.log('highlight section');
+		hljs.highlightBlock(e);
+	});
 
 }
 

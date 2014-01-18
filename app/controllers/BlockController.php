@@ -28,6 +28,28 @@ class BlockController extends BaseController {
 		return Redirect::to('posts');
 	}
 
+	public function display($slug)
+	{
+		$c = Config::get('hashids');
+		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
+
+		$id = Str::lower($id);
+
+		$de = $hashids->decrypt($id);
+		if (is_array($de) && count($de))
+			$id = $de[0];
+		else
+			App::abort(404);
+
+		$block = Post::findOrFail($block);
+
+		Event::fire('block.display', [$block]);
+
+		return
+			View::make('blocks.show')
+				->with('block', $block);		
+	}
+
 	public function get($id)
 	{
 		$block = Block::get($id);

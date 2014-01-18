@@ -1,6 +1,10 @@
 @extends('layouts.default')
 
-@section('title') posts @stop
+@section('title') blocks @stop
+
+@section('admin')
+<a class="btn" href="/blocks/create">add block</a>
+@stop
 
 @section('content')
 <h1>blocks</h1>
@@ -13,7 +17,5 @@ No blocks yet.
 <li><a href="{{ '/'.$b->slug.'/'.$b->id }}">{{ $b->name }}</a></li>
 @endforeach
 </li>
-
-<a href="#" data-href="/blocks/create">Add</a>
 
 @stop

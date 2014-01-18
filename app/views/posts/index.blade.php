@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-<h1>posts</h1>
 
 <?
 

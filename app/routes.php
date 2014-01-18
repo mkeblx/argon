@@ -21,7 +21,7 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
 //blog
 Route::get('/', ['uses' => 'PostController@blog']);
-Route::get('/blog', ['uses' => 'PostController@blog']);
+Route::get('blog', ['uses' => 'PostController@blog']);
 Route::get('{slug}/{id}', ['uses' => 'PostController@display'])
 	->where(['slug' => SLUG, 'id' => ID]);
 
@@ -32,5 +32,7 @@ Route::group(['before' => 'auth'], function(){
 });
 
 //blocks
-Route::get('/blocks/{id}', ['uses' => 'BlockController@index']);
-Route::get('/blocks/{id}', ['uses' => 'BlockController@get']);
+Route::get('blocks/{id}', ['uses' => 'BlockController@index']);
+Route::get('blocks/{id}', ['uses' => 'BlockController@get']);
+Route::get('/blocks/{slug}', ['uses' => 'BlockController@display'])
+	->where(['slug' => SLUG]);
