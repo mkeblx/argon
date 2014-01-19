@@ -14,6 +14,8 @@
 
 {{ Form::text('published_at', null, ['class' => 'datetime']) }}
 
+<span class="btn set-date-btn" data-datetime="{{Date::now()}}">set to now</span>
+
 {{ Form::submit('save') }}
 
 {{ Form::close() }}

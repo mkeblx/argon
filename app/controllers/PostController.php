@@ -10,7 +10,6 @@ class PostController extends BaseController {
 			Post::published()
 				->orderBy('published_at', 'desc')
 				->paginate($POSTS_PER_PAGE);
-		//		->get();
 
 		if (Request::ajax())
 			return $posts;
@@ -55,7 +54,7 @@ class PostController extends BaseController {
 				->get();
 
 		if (Request::ajax())
-			return $posts; //drafts
+			return $posts;
 
 		return
 			View::make('posts.index')
@@ -73,7 +72,7 @@ class PostController extends BaseController {
 		$data = Input::except('_method','_token');
 
 		if (Post::validate($data)->passes()) {
-			$data['slug'] = Str::slug($data['title']);
+			//$data['slug'] = Str::slug($data['title']);
 			Post::create($data);
 		} else {
 			exit('Post not filled out');
@@ -117,7 +116,7 @@ class PostController extends BaseController {
 	{
 		$data = Input::except('_method','_token');
 		
-		$data['slug'] = Str::slug($data['title']);
+		//$data['slug'] = Str::slug($data['title']);
 		
 		Post::where('id','=',$id)
 			->update($data);

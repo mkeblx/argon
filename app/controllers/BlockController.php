@@ -4,6 +4,7 @@ class BlockController extends BaseController {
 
 	public function index()
 	{
+		//get most recent blocks
 		$blocks = Block::all();
 
 		if (Request::ajax())
@@ -12,6 +13,15 @@ class BlockController extends BaseController {
 		return
 			View::make('blocks.index')
 				->with('blocks', $blocks);
+	}
+
+	public function create()
+	{
+		$block = [];
+
+		return
+			View::make('blocks.create')
+				->with('block', $block);
 	}
 
 	public function store()
@@ -50,8 +60,10 @@ class BlockController extends BaseController {
 				->with('block', $block);		
 	}
 
-	public function get($id)
+	public function get($name)
 	{
+		//todo: get most recent created >= set-time
+
 		$block = Block::get($id);
 		return $block;
 	}

@@ -22,7 +22,8 @@ module.exports = function(grunt) {
 					'<%= dir.libs %>jquery.min.js',
 					'<%= dir.libs %>lodash.min.js',
 					'<%= dir.libs %>backbone-min.js',
-					'<%= dir.libs %>highlight.min.js'
+					'<%= dir.libs %>highlight.min.js',
+					'<%= dir.libs  %>d3.min.js'
 					],
 				dest: '<%= dir.libs %>libs.js'
 			}

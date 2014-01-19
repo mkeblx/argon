@@ -6,7 +6,7 @@ class UserTableSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$root = [
+		$user = [
 			'id' => 1,
 			'username' => 'argon',
 			'password' => Hash::make('password'),

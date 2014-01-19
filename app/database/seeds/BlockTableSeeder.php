@@ -6,8 +6,23 @@ class BlockTableSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		return;
-		$blocks = [];
+		$blocks = [
+			[
+				'name' => 'sidebar',
+				'slug' => 'sidebar',
+				'content' => 'sidebar'
+			],
+			[
+				'name' => 'header',
+				'slug' => 'header',
+				'content' => 'header'
+			],
+			[
+				'name' => 'footer',
+				'slug' => 'footer',
+				'content' => '&copy; '.Date::format('Y')
+			],
+		];
 
 		DB::table('blocks')->insert($blocks);
 	}

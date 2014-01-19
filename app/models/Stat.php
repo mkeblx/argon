@@ -1,16 +1,16 @@
 <?php
 
-class Tag extends Eloquent {
+class Stat extends Eloquent {
 
-	protected $table = 'tags';
+	protected $table = 'stats';
 
-	public function posts() {
+	public function post() {
 		return $this->belongsToMany('Post');
 	}
 
 	public function validate($data) {
 		$rules = [
-			'name' => 'required'
+			'metric' => 'required'
 			];
 
 		$validator = Validator::make($data, $rules);

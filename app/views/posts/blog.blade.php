@@ -2,13 +2,16 @@
 
 @section('title') blog @stop
 
+@section('admin')
+	<a class="btn" href="{{ route('posts.index') }}">posts</a>
+	<a class="btn" href="{{ route('blocks.index') }}">blocks</a>
+@stop
+
 @section('content')
 
 <?
-
 $c = Config::get('hashids');
 $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-
 ?>
 
 @if (!count($posts))

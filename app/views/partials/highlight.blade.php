@@ -6,7 +6,7 @@ $styles = [
 	'monokai_sublime',
 ];
 
-$style = $styles[0];
+$style = $styles[1];
 
 ?>
 <link rel="stylesheet" title="Monokai Sublime" href="/css/highlightjs/<?=$style?>.css">

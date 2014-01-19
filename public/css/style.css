@@ -264,20 +264,22 @@ input[name=title] {
   /* ace */
   width: 100%;
   height: 400px;
-  margin: 6px 0px;
+  margin: 6px 0px 10px;
+  outline: 1px solid #ccc;
 }
 
-/* line 211, sass/style.scss */
+/* line 212, sass/style.scss */
 input.datetime {
   display: block;
+  width: 360px;
   margin-bottom: 10px;
 }
 
-/* line 217, sass/style.scss */
+/* line 219, sass/style.scss */
 .login-form input, #primary input {
   margin-bottom: 6px;
 }
-/* line 221, sass/style.scss */
+/* line 223, sass/style.scss */
 .login-form input[type=submit], #primary input[type=submit] {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -291,88 +293,88 @@ input.datetime {
 }
 
 /* post display */
-/* line 236, sass/style.scss */
+/* line 238, sass/style.scss */
 div.post {
   margin-bottom: 40px;
 }
-/* line 239, sass/style.scss */
+/* line 241, sass/style.scss */
 div.post .head {
   margin-bottom: 10px;
 }
-/* line 242, sass/style.scss */
+/* line 244, sass/style.scss */
 div.post .head h1 {
   display: inline-block;
   font-size: 36px;
   line-height: 42px;
   margin-right: 6px;
 }
-/* line 248, sass/style.scss */
+/* line 250, sass/style.scss */
 div.post .head h1 a {
   color: #111111;
   text-decoration: none;
   border-bottom: 1px solid #111111;
 }
-/* line 256, sass/style.scss */
+/* line 258, sass/style.scss */
 div.post .date.published {
   display: inline-block;
   text-transform: uppercase;
   font-size: 16px;
 }
-/* line 264, sass/style.scss */
+/* line 266, sass/style.scss */
 div.post .content h1, div.post .content h2, div.post .content h3, div.post .content h4, div.post .content h5, div.post .content h6 {
   margin-top: 16px;
 }
-/* line 268, sass/style.scss */
+/* line 270, sass/style.scss */
 div.post .content h1 {
   font-size: 26px;
   line-height: 22px;
   margin-bottom: 8px;
 }
-/* line 274, sass/style.scss */
+/* line 276, sass/style.scss */
 div.post .content h2 {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 279, sass/style.scss */
+/* line 281, sass/style.scss */
 div.post .content h3 {
   font-size: 20px;
   line-height: 20px;
 }
-/* line 284, sass/style.scss */
+/* line 286, sass/style.scss */
 div.post .content h4 {
   font-size: 18px;
   line-height: 18px;
 }
-/* line 289, sass/style.scss */
+/* line 291, sass/style.scss */
 div.post .content img {
   border: none;
   margin: 10px 0px;
   max-width: 620px;
 }
-/* line 295, sass/style.scss */
+/* line 297, sass/style.scss */
 div.post .content ul {
   margin: 10px 0px 10px;
   padding-left: 6px;
 }
-/* line 299, sass/style.scss */
+/* line 301, sass/style.scss */
 div.post .content ul li {
   list-style-type: disc;
   list-style-position: inside;
   padding-bottom: 8px;
 }
-/* line 310, sass/style.scss */
+/* line 312, sass/style.scss */
 div.post .content a {
   padding-bottom: 1px;
   border-bottom: 1px dotted #ccc;
   text-decoration: none;
 }
-/* line 315, sass/style.scss */
+/* line 317, sass/style.scss */
 div.post .content a:hover {
   border-bottom: 1px dotted #006789;
 }
 
 /* admin */
-/* line 330, sass/style.scss */
+/* line 332, sass/style.scss */
 #admin-bar {
   background: #111111;
   font-weight: 300;
@@ -380,7 +382,7 @@ div.post .content a:hover {
   height: 36px;
   color: #fff !important;
 }
-/* line 339, sass/style.scss */
+/* line 341, sass/style.scss */
 #admin-bar.admin a.btn {
   color: #eeeeee;
   outline: none;
@@ -388,43 +390,43 @@ div.post .content a:hover {
 }
 
 /* misc */
-/* line 353, sass/style.scss */
+/* line 355, sass/style.scss */
 .right {
   float: right;
 }
 
-/* line 357, sass/style.scss */
+/* line 359, sass/style.scss */
 .left {
   float: left;
 }
 
-/* line 361, sass/style.scss */
+/* line 363, sass/style.scss */
 .show {
   display: block;
 }
 
-/* line 365, sass/style.scss */
+/* line 367, sass/style.scss */
 .hidden {
   display: none !important;
   visibility: hidden !important;
 }
 
-/* line 370, sass/style.scss */
+/* line 372, sass/style.scss */
 .hide {
   display: none;
 }
 
-/* line 374, sass/style.scss */
+/* line 376, sass/style.scss */
 .ninja {
   visibility: hidden;
 }
 
-/* line 378, sass/style.scss */
+/* line 380, sass/style.scss */
 .ghost {
   opacity: 0.334;
 }
 
-/* line 382, sass/style.scss */
+/* line 384, sass/style.scss */
 .blink {
   /* oh, yes */
   -webkit-animation: blink 1.4s step-end infinite;
@@ -433,24 +435,24 @@ div.post .content a:hover {
 
 /* animations */
 @-webkit-keyframes blink {
-  /* line 390, sass/style.scss */
+  /* line 392, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 394, sass/style.scss */
+  /* line 396, sass/style.scss */
   50% {
     opacity: 0;
   }
 }
 
 @keyframes blink {
-  /* line 400, sass/style.scss */
+  /* line 402, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 404, sass/style.scss */
+  /* line 406, sass/style.scss */
   50% {
     opacity: 0;
   }

@@ -8,7 +8,7 @@
 
 {{ Form::text('username', null, ['placeholder' => 'username']) }}
 
-{{ Form::password('password', null, ['placeholder' => 'password']) }} <br>
+{{ Form::password('password', ['placeholder' => 'password']) }} <br>
 
 {{ Form::submit('login', ['class' => 'button']) }}
 

@@ -1,8 +1,12 @@
 define([], function(){
 
-var Block = {
+var Block = Backbone.Model.extend({
 	
-};
+	defaults: {
+		
+	}
+
+});
 
 return Block;
 
