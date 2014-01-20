@@ -20,10 +20,11 @@ No posts yet.
 @else
 
 @foreach ($posts as $post)
-<div class="post">
+<? $hash = $hashids->encrypt($post->id); ?>
+<div class="post" id="post-{{$hash}}">
 
 <div class="head">
-	<h1><a href="{{ '/'.$post->slug.'/'.$hashids->encrypt($post->id) }}">{{ $post->title }}</a></h1>
+	<h1><a href="{{ '/'.$post->slug.'/'.$hash }}">{{ $post->title }}</a></h1>
 	<div class="date published" title="{{ $post->published_at }}">
 		{{ Date::parse($post->published_at)->format('j M Y') }}
 	</div>

@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-<div class="post">
+<div class="post" id="post-{{$id}}">
 
 <div class="head">
 	<h1>{{ $post->title }}</h1>

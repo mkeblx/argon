@@ -21,7 +21,7 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
 //blog
 Route::get('/', ['uses' => 'PostController@blog']);
-//Route::get('blog', ['uses' => 'PostController@blog']);
+Route::get('blog', ['uses' => 'PostController@blog']);
 Route::get('feed', ['as' => 'feed', 'uses' => 'PostController@feed']);
 
 Route::group(['before' => 'auth'], function(){

@@ -4,6 +4,13 @@
 
 @section('content')
 
+<?
+foreach ($errors->all() as $message) {
+    echo '<div class="error-bar">'.$message.'</div>';
+}
+
+?>
+
 {{ Form::open(['route' => 'posts.store', 'class' => 'post-form']) }}
 
 {{ Form::text('title', null, ['placeholder' => 'title']) }}

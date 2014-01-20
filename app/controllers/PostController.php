@@ -106,17 +106,18 @@ class PostController extends BaseController {
 
 		$de = $hashids->decrypt($id);
 		if (is_array($de) && count($de))
-			$id = $de[0];
+			$_id = $de[0];
 		else
-			App::abort(404);
+			App::abort(404, 'Post not found');
 
-		$post = Post::findOrFail($id);
+		$post = Post::findOrFail($_id);
 
 		Event::fire('post.display', [$post]);
 
 		return
 			View::make('posts.show')
-				->with('post', $post);
+				->with('post', $post)
+				->with('id', $id);
 	}
 
 	public function edit($id)

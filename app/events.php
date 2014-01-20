@@ -12,14 +12,27 @@ Event::listen('user.logout', function($user){
 });
 
 Event::listen('post.blog', function(){
-	//record stats
 	//Stat::create(...);
 });
 
 Event::listen('post.display', function($post){
+	$stat = [
+		'type' => 'posts',
+		'type_id' => $post->id,
+		'metric' => 'view',
+		'ip' => Request::getClientIp(),
+		'created_at' => Date::now()];
 
-	//record views of post
-	//time, ip, etc
-	//Stat::create(...);
+	Stat::insert($stat);
+});
 
+Event::listen('block.display', function($block){
+	$stat = [
+		'type' => 'blocks',
+		'type_id' => $block->id,
+		'metric' => 'view',
+		'ip' => Request::getClientIp(),
+		'created_at' => Date::now()];
+
+	Stat::insert($stat);
 });

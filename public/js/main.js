@@ -13,6 +13,8 @@ function init() {
 
 	});
 
+	$('.error-bar').slideDown(500);
+
 	$('.toggle-status-btn').on('click', function(){
 		var $this = $(this);
 
