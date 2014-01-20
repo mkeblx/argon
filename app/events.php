@@ -6,7 +6,6 @@ Post::saving(function($post){
 	$post->slug = Str::slug($post->title);
 });
 
-
 Event::listen('user.login', function($user){
 	//$user->last_login = new DateTime;
 	//$user->save();

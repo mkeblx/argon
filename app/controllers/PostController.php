@@ -72,10 +72,9 @@ class PostController extends BaseController {
 		$data = Input::except('_method','_token');
 
 		if (Post::validate($data)->passes()) {
-			//$data['slug'] = Str::slug($data['title']);
 			Post::create($data);
 		} else {
-			exit('Post not filled out');
+			exit('Post data needed');
 		}
 
 		return Redirect::to('posts');
@@ -115,8 +114,6 @@ class PostController extends BaseController {
 	public function update($id)
 	{
 		$data = Input::except('_method','_token');
-		
-		//$data['slug'] = Str::slug($data['title']);
 		
 		Post::where('id','=',$id)
 			->update($data);

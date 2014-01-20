@@ -210,9 +210,19 @@ input[name=title] {
 }
 
 input.datetime {
+	float: right;
 	display: block;
 	width: 360px;
 	margin-bottom: 10px;
+}
+
+.set-date-btn {
+	float: right;
+	padding: 14px 12px;
+	cursor: pointer;
+	outline: 1px solid $light;
+	margin-right: 5px;
+	margin-top: 6px;
 }
 
 .login-form, #primary {

@@ -14,7 +14,7 @@ class CreateBlocks extends Migration {
 			$t->string('slug', 256);
 			$t->text('description');
 			$t->text('content');
-			$t->string('type', 32);
+			$t->string('type', 32)->default('html');
 			$t->dateTime('created_at');
 		});
 	}

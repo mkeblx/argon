@@ -1,6 +1,6 @@
 <?php
 
-class UserTableSeeder extends Seeder {
+class VarTableSeeder extends Seeder {
 
 	public function run()
 	{
@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder {
 			],
 		];
 
-		Var::insert($vars);
+		DB::table('vars')->insert($vars);
 	}
 
 }

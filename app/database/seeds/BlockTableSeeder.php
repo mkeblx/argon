@@ -10,21 +10,26 @@ class BlockTableSeeder extends Seeder {
 			[
 				'name' => 'sidebar',
 				'slug' => 'sidebar',
-				'content' => 'sidebar'
+				'content' => 'sidebar',
+				'created_at' => Date::now()
 			],
 			[
 				'name' => 'header',
 				'slug' => 'header',
-				'content' => 'header'
+				'content' => 'header',
+				'created_at' => Date::now()
 			],
 			[
 				'name' => 'footer',
 				'slug' => 'footer',
-				'content' => '&copy; '.Date::format('Y')
+				'content' => 'footer',
+				'created_at' => Date::now()
 			],
 		];
 
-		DB::table('blocks')->insert($blocks);
+		foreach ($blocks as $block) {
+			DB::table('blocks')->insert($block);
+		}
 	}
 
 }

@@ -12,6 +12,7 @@
 <?
 $c = Config::get('hashids');
 $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
+
 ?>
 
 @if (!count($posts))
