@@ -9,22 +9,25 @@ function init() {
 
 	Backbone.history.start();
 
-
-	//todo: add datetime picker support
 	$('input.datetime').on('click', function(ev){
 
 	});
 
-	$('.set-date-btn').on('click', function(ev){
+	$('.toggle-status-btn').on('click', function(){
 		var $this = $(this);
 
-		var val = $this.data('datetime');
+		var status = ($this.html() == 'draft') ? 'final' : 'draft';
+		$this.html(status);
+		$this.parent().find('input[name=status]').val(status);
+	});
 
+	$('.set-date-btn').on('click', function(ev){
+		var $this = $(this);
+		var val = $this.data('datetime');
 		$this.parent().find('input[name=published_at]').val(val);
 	});
 
 	$('pre code').each(function(i, e) {
-		console.log('highlight section');
 		hljs.highlightBlock(e);
 	});
 

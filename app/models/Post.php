@@ -11,6 +11,14 @@ class Post extends Eloquent {
 		return $this->belongsToMany('Tag');
 	}
 
+	public static function boot() {
+		parent::boot();
+
+		static::saving(function($post){
+			$post->slug = Str::slug($post->title);
+		});
+	}
+
 	public static function validate($data) {
 		$rules = [
 			'title' => 'required',

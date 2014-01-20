@@ -21,9 +21,12 @@ class PostController extends BaseController {
 				->with('posts', $posts);
 	}
 
-	public function feed($tag)
+	public function feed()
 	{
 		$NUM_POSTS = 16;
+
+		$c = Config::get('hashids');
+		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
 
 		$posts =
 			Post::published()
@@ -31,12 +34,23 @@ class PostController extends BaseController {
 				->take($NUM_POSTS)
 				->get();
 
-		//feed gen
+		$feed = Feed::make();
+
+		$feed->title = Config::get('app.title');
+		$feed->description = Config::get('app.description');
+		//$feed->logo = 'http://yoursite.tld/logo.jpg';
+		$feed->link = URL::to('feed');
+		$feed->pubdate = $posts[0]->created_at;
+		$feed->lang = 'en';
+
+		
 		foreach ($posts as $post) {
-			
+			$hash = $hashids->encrypt($post->id);
+			$url = Config::get('app.url').'/'.$post->slug.'/'.$hash;
+			$feed->add($post->title, '', $url, $post->published_at, $post->content);
 		}
 
-		return $posts;
+		return $feed->render('atom');
 	}
 
 	//REST
@@ -71,10 +85,13 @@ class PostController extends BaseController {
 	{
 		$data = Input::except('_method','_token');
 
-		if (Post::validate($data)->passes()) {
+		$validator = Post::validate($data);
+		if ($validator->passes()) {
 			Post::create($data);
 		} else {
-			exit('Post data needed');
+			return Redirect::to('posts/create')
+				->withInput(Input::get())
+				->withErrors($validator);
 		}
 
 		return Redirect::to('posts');
@@ -115,8 +132,9 @@ class PostController extends BaseController {
 	{
 		$data = Input::except('_method','_token');
 		
-		Post::where('id','=',$id)
-			->update($data);
+		$data['slug'] = Str::slug($data['title']);
+		$post = Post::where('id','=',$id);
+		$post->update($data);
 
 		return Redirect::to('posts');
 	}

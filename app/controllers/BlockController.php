@@ -38,20 +38,20 @@ class BlockController extends BaseController {
 		return Redirect::to('posts');
 	}
 
-	public function display($slug)
+	public function display($id)
 	{
-		$c = Config::get('hashids');
-		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
+		//$c = Config::get('hashids');
+		//$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
 
-		$id = Str::lower($id);
+		//$id = Str::lower($id);
 
-		$de = $hashids->decrypt($id);
-		if (is_array($de) && count($de))
-			$id = $de[0];
-		else
-			App::abort(404);
+		//$de = $hashids->decrypt($id);
+		//if (is_array($de) && count($de))
+		//	$id = $de[0];
+		//else
+		//	App::abort(404);
 
-		$block = Post::findOrFail($block);
+		$block = Block::findOrFail($id);
 
 		Event::fire('block.display', [$block]);
 

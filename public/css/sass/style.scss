@@ -216,7 +216,7 @@ input.datetime {
 	margin-bottom: 10px;
 }
 
-.set-date-btn {
+.set-date-btn, .toggle-status-btn {
 	float: right;
 	padding: 14px 12px;
 	cursor: pointer;
@@ -240,6 +240,7 @@ input.datetime {
 		border: none;
 		font-weight: 200 !important;
 		padding: 7px 9px 9px;
+		cursor: pointer;
 	}
 }
 

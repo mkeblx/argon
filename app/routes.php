@@ -21,8 +21,8 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
 //blog
 Route::get('/', ['uses' => 'PostController@blog']);
-Route::get('blog', ['uses' => 'PostController@blog']);
-Route::get('feed/{tag?}', ['as' => 'feed', 'uses' => 'PostController@feed']);
+//Route::get('blog', ['uses' => 'PostController@blog']);
+Route::get('feed', ['as' => 'feed', 'uses' => 'PostController@feed']);
 
 Route::group(['before' => 'auth'], function(){
 	Route::resource('posts','PostController');
@@ -34,13 +34,15 @@ Route::group(['before' => 'auth'], function(){
 	//Route::get('files', ['uses' => 'FileController@index']);
 });
 
+//blocks
+Route::get('blocks/{id}', ['uses' => 'BlockController@display'])
+	->where(['id' => ID]);
+
 Route::get('{slug}/{id}', ['uses' => 'PostController@display'])
 	->where(['slug' => SLUG, 'id' => ID]);
 
 
 
-//blocks
-Route::get('blocks/{id}', ['uses' => 'BlockController@get']);
 //Route::get('{slug}', ['uses' => 'BlockController@display'])
 //	->where(['slug' => SLUG]);
 

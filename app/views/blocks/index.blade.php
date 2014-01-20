@@ -14,7 +14,7 @@ No blocks yet.
 @endif
 <ul class="blocks">
 @foreach ($blocks as $b)
-<li><a href="{{ '/'.$b->slug.'/'.$b->id }}">{{ $b->name }}</a></li>
+<li><a href="{{ '/blocks/'.$b->id }}">{{ $b->name }}</a></li>
 @endforeach
 </li>
 
