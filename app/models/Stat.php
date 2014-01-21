@@ -7,6 +7,15 @@ class Stat extends Eloquent {
 
 	protected $fillable = ['type','type_id','metric','ip','created_at'];
 
+	public static function boot() {
+		parent::boot();
+
+		static::creating(function($post){
+			if (Auth::check())
+				return false;
+		});
+	}
+
 	public function post() {
 		return $this->belongsToMany('Post');
 	}

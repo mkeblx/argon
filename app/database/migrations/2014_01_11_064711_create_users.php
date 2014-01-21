@@ -14,6 +14,7 @@ class CreateUsers extends Migration {
 			$t->string('password', 64);
 			$t->string('role', 32);
 			$t->timestamps();
+			$t->dateTime('last_login');
 		});
 	}
 

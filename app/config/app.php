@@ -4,7 +4,9 @@ return array(
 
 	//blog
 	'title' => 'argon',
-	'description' => '',
+	'description' => 'personal website framework',
+
+	'ga' => 'UA-XXXXXXXX-1',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 
 @section('content')
 
-{{ Form::open(['route' => 'doLogin', 'class' => 'login-form']) }}
+{{ Form::open(['route' => 'login.do', 'class' => 'login-form']) }}
 
 {{ Form::text('username', null, ['placeholder' => 'username']) }}
 

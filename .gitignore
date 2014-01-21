@@ -1,8 +1,8 @@
 /bootstrap/compiled.php
 /node_modules
 /vendor
-/old
 *.log
+/public/uploads/*
 composer.phar
 composer.lock
 .DS_Store

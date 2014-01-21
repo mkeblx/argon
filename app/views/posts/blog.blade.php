@@ -12,7 +12,6 @@
 <?
 $c = Config::get('hashids');
 $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-
 ?>
 
 @if (!count($posts))
@@ -21,7 +20,7 @@ No posts yet.
 
 @foreach ($posts as $post)
 <? $hash = $hashids->encrypt($post->id); ?>
-<div class="post" id="post-{{$hash}}">
+<div class="post type-{{'std'}} status-{{$post->status}}" id="post-{{$hash}}">
 
 <div class="head">
 	<h1><a href="{{ '/'.$post->slug.'/'.$hash }}">{{ $post->title }}</a></h1>

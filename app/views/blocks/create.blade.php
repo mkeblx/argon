@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 @section('title') create block @stop
 
@@ -6,11 +6,11 @@
 
 {{ Form::open(['route' => 'blocks.store', 'class' => 'block-form']) }}
 
-{{ Form::text('title', null, ['placeholder' => 'title']) }}
+{{ Form::text('name', $block->name, ['placeholder' => 'name', 'readonly']) }}
 
 <pre id="editor"></pre>
 
-{{ Form::hidden('content', null, ['id' => 'post-content']) }}
+{{ Form::hidden('content', $block->content, ['id' => 'model-content']) }}
 
 {{ Form::submit('create') }}
 

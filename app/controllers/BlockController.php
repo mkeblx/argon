@@ -4,8 +4,7 @@ class BlockController extends BaseController {
 
 	public function index()
 	{
-		//get most recent blocks
-		$blocks = Block::all();
+		$blocks = Block::getAll();
 
 		if (Request::ajax())
 			return $blocks;
@@ -15,9 +14,9 @@ class BlockController extends BaseController {
 				->with('blocks', $blocks);
 	}
 
-	public function create()
+	public function create($slug)
 	{
-		$block = [];
+		$block = Block::get($slug, false);
 
 		return
 			View::make('blocks.create')
@@ -32,26 +31,15 @@ class BlockController extends BaseController {
 			$data['slug'] = Str::slug($data['name']);
 			Block::create($data);
 		} else {
-			exit('Block data required');
+			App::abort(403, 'Block data required');
 		}
 
-		return Redirect::to('posts');
+		return Redirect::to('blocks');
 	}
 
-	public function display($id)
+	public function display($slug)
 	{
-		//$c = Config::get('hashids');
-		//$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-
-		//$id = Str::lower($id);
-
-		//$de = $hashids->decrypt($id);
-		//if (is_array($de) && count($de))
-		//	$id = $de[0];
-		//else
-		//	App::abort(404);
-
-		$block = Block::findOrFail($id);
+		$block = Block::get($slug, false);
 
 		Event::fire('block.display', [$block]);
 
@@ -62,8 +50,6 @@ class BlockController extends BaseController {
 
 	public function get($name)
 	{
-		//todo: get most recent created >= set-time
-
 		$block = Block::get($id);
 		return $block;
 	}

@@ -1,6 +1,8 @@
 <?php
 
 namespace argon;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+
 
 class File extends Eloquent {
 

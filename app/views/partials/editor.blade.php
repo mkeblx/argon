@@ -2,6 +2,7 @@
 
 <script>
 $(function(){
+
 	var editor = ace.edit('editor');
 	editor.setShowPrintMargin(0);
 	editor.setFontSize(15);
@@ -10,12 +11,12 @@ $(function(){
 	//editor.setTheme("ace/theme/twilight");
 	//editor.getSession().setMode("ace/mode/javascript");
 
-	var origVal = $('#post-content').val();
+	var origVal = $('#model-content').val();
 	editor.setValue(origVal);
 
-	$('.post-form').on('submit', function(e){
+	$('form').on('submit', function(e){
 		var val = editor.getValue();
-		$('#post-content').val(val);
+		$('#model-content').val(val);
 	});
 
 });

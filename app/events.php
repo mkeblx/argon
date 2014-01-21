@@ -1,18 +1,26 @@
 <?php
 
-//events
-
+//user tracking
 Event::listen('user.login', function($user){
-	//$user->last_login = new DateTime;
-	//$user->save();
+	$user->last_login = new DateTime;
+	$user->save();
 });
 
 Event::listen('user.logout', function($user){
 
 });
 
+
+//stats
 Event::listen('post.blog', function(){
-	//Stat::create(...);
+	$stat = [
+		'type' => 'blog',
+		'type_id' => 0,
+		'metric' => 'view',
+		'ip' => Request::getClientIp(),
+		'created_at' => Date::now()];
+
+	Stat::create($stat);
 });
 
 Event::listen('post.display', function($post){
@@ -23,7 +31,7 @@ Event::listen('post.display', function($post){
 		'ip' => Request::getClientIp(),
 		'created_at' => Date::now()];
 
-	Stat::insert($stat);
+	Stat::create($stat);
 });
 
 Event::listen('block.display', function($block){
@@ -34,5 +42,5 @@ Event::listen('block.display', function($block){
 		'ip' => Request::getClientIp(),
 		'created_at' => Date::now()];
 
-	Stat::insert($stat);
+	Stat::create($stat);
 });

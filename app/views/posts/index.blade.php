@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 @section('title') posts @stop
 
@@ -9,10 +9,8 @@
 @section('content')
 
 <?
-
 $c = Config::get('hashids');
 $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-
 ?>
 
 <h2>drafts</h2>

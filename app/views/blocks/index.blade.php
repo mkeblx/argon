@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 @section('title') blocks @stop
 
@@ -14,7 +14,7 @@ No blocks yet.
 @endif
 <ul class="blocks">
 @foreach ($blocks as $b)
-<li><a href="{{ '/blocks/'.$b->id }}">{{ $b->name }}</a></li>
+<li><a href="{{ route('blocks.display', $b->slug) }}">{{ $b->name }}</a></li>
 @endforeach
 </li>
 

@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 @section('title') edit post @stop
 
@@ -10,7 +10,7 @@
 
 <pre id="editor"></pre>
 
-{{ Form::hidden('content', null, ['id' => 'post-content']) }}
+{{ Form::hidden('content', null, ['id' => 'model-content']) }}
 
 {{ Form::text('published_at', null, ['class' => 'datetime']) }}
 

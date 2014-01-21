@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 @section('title') create post @stop
 
@@ -17,7 +17,7 @@ foreach ($errors->all() as $message) {
 
 <pre id="editor"></pre>
 
-{{ Form::hidden('content', null, ['id' => 'post-content']) }}
+{{ Form::hidden('content', null, ['id' => 'model-content']) }}
 
 {{ Form::text('published_at', Date::now(), ['class' => 'datetime']) }}
 

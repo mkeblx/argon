@@ -14,6 +14,8 @@ class AuthController extends BaseController {
 		$credentials = Input::only('username', 'password');
 		$remember = true;
 		if (Auth::attempt($credentials, $remember)) {
+			Event::fire('user.login', [Auth::user()]);
+
 			return Redirect::intended('/');
 		}
 		return Redirect::to('login');
@@ -22,6 +24,11 @@ class AuthController extends BaseController {
 	public function logout() {
 		Auth::logout();
 		return Redirect::to('/');
+	}
+
+	//move
+	public function dashboard() {
+		return View::make('dashboard');
 	}
 
 }

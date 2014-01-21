@@ -6,8 +6,8 @@ function init() {
 	var Router = require('Router');
 
 	var router = new Router;
-
 	Backbone.history.start();
+
 
 	$('input.datetime').on('click', function(ev){
 

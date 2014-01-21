@@ -110,6 +110,10 @@ code {
 	
 }
 
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
 ul.pagination, ul.pager {
 
 	li {
@@ -173,8 +177,10 @@ ul.pagination, ul.pager {
 	color: #111;
 }
 
-#foot { 
+#footer { 
 	margin-top: 80px;
+	font-size: 13px;
+	line-height: 13px;
 }
 
 /* post list */
