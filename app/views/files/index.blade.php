@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title') files @stop
+
 @section('admin')
 	<a class="btn" href="{{ route('files.add') }}">add file</a>
 @stop
@@ -12,7 +14,7 @@
 @endif
 <ul class="files">
 @foreach ($files as $f)
-	<li></li>
+	<li><a href="{{ $f->path }}">{{ $f->name }}</a></li>
 @endforeach
 </ul>
 

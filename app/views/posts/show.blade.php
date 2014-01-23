@@ -14,12 +14,18 @@
 <div class="head">
 	<h1>{{ $post->title }}</h1>
 	<div class="date published" title="{{ $post->published_at }}">
-		{{ Date::parse($post->published_at)->format('j M Y') }}
+		{{ $post->pubdate() }}
 	</div>
 </div>
 
 <div class="content">
 {{ $post->content }}
+</div>
+
+<div class="tags">
+@foreach($post->tags as $tag)
+	<span><a href="{{ route('tags.show', $tag->slug) }}">{{ '#'.$tag->name }}</a></span>
+@endforeach
 </div>
 
 </div>

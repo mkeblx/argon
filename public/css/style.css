@@ -96,58 +96,64 @@ h1 {
 }
 
 /* line 35, sass/style.scss */
+h1.lrg {
+  font-size: 38px;
+  line-height: 38px;
+}
+
+/* line 40, sass/style.scss */
 h2 {
   font-size: 24px;
   line-height: 24px;
 }
 
-/* line 40, sass/style.scss */
+/* line 45, sass/style.scss */
 h3 {
   font-size: 20px;
   line-height: 20px;
 }
 
-/* line 45, sass/style.scss */
+/* line 50, sass/style.scss */
 h4 {
   font-size: 18px;
   line-height: 18px;
 }
 
-/* line 50, sass/style.scss */
+/* line 55, sass/style.scss */
 h5 {
   font-size: 16px;
   line-height: 16px;
 }
 
-/* line 59, sass/style.scss */
+/* line 64, sass/style.scss */
 p {
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 8px;
 }
-/* line 64, sass/style.scss */
+/* line 69, sass/style.scss */
 p.lead {
   font-size: 22px;
   line-height: 30px;
 }
 
-/* line 70, sass/style.scss */
+/* line 75, sass/style.scss */
 a {
   color: #006789;
 }
-/* line 73, sass/style.scss */
+/* line 78, sass/style.scss */
 a:visited {
   color: #006789;
 }
 
-/* line 78, sass/style.scss */
+/* line 83, sass/style.scss */
 a.btn, .btn {
   text-decoration: none;
   padding: 4px;
   outline: 0px solid #111111;
 }
 
-/* line 85, sass/style.scss */
+/* line 90, sass/style.scss */
 blockquote {
   border-left: 3px solid #eeeeee;
   padding: 8px 12px;
@@ -157,17 +163,17 @@ blockquote {
   font-weight: 100;
 }
 
-/* line 94, sass/style.scss */
-em {
+/* line 99, sass/style.scss */
+em, i {
   font-style: italic;
 }
 
-/* line 98, sass/style.scss */
-strong {
+/* line 103, sass/style.scss */
+strong, b {
   font-weight: 400;
 }
 
-/* line 102, sass/style.scss */
+/* line 107, sass/style.scss */
 pre {
   font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,monospace;
   font-size: 14px;
@@ -175,38 +181,38 @@ pre {
   margin: 16px 0px;
 }
 
-/* line 113, sass/style.scss */
+/* line 118, sass/style.scss */
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/* line 119, sass/style.scss */
+/* line 124, sass/style.scss */
 ul.pagination li, ul.pager li {
   display: inline-block;
   padding: 4px;
   text-transform: lowercase;
 }
-/* line 124, sass/style.scss */
+/* line 129, sass/style.scss */
 ul.pagination li:first-child, ul.pager li:first-child {
   padding-left: 0px;
 }
-/* line 128, sass/style.scss */
+/* line 133, sass/style.scss */
 ul.pagination li.disabled, ul.pager li.disabled {
   display: none;
 }
-/* line 132, sass/style.scss */
+/* line 137, sass/style.scss */
 ul.pagination li a, ul.pager li a {
   padding-bottom: 1px;
   text-decoration: none;
   border-bottom: 1px solid #fff;
   transition: border 100ms linear;
 }
-/* line 138, sass/style.scss */
+/* line 143, sass/style.scss */
 ul.pagination li a:hover, ul.pager li a:hover {
   border-bottom: 1px solid #111111;
 }
 
-/* line 146, sass/style.scss */
+/* line 151, sass/style.scss */
 .error-bar {
   background-color: #aaa;
   color: #fff;
@@ -218,58 +224,75 @@ ul.pagination li a:hover, ul.pager li a:hover {
 }
 
 /* basic layout */
-/* line 158, sass/style.scss */
+/* line 163, sass/style.scss */
 #container {
   margin: 20px;
   font-weight: 300;
   width: 960px;
 }
 
-/* line 164, sass/style.scss */
+/* line 169, sass/style.scss */
 #sidebar {
   width: 300px;
   float: right;
 }
 
-/* line 173, sass/style.scss */
+/* line 178, sass/style.scss */
 #primary {
   width: 640px;
   font-weight: 300;
   color: #111;
 }
 
-/* line 180, sass/style.scss */
+/*
+@media all and (max-width: 640px) {
+
+	#container {
+		width: 620px;
+	}
+
+	#primary {
+		width: 100%;
+	}
+
+	#sidebar {
+		display: none;
+	}
+
+}
+*/
+/* line 203, sass/style.scss */
 #footer {
   margin-top: 80px;
-  font-size: 13px;
-  line-height: 13px;
+  font-size: 14px;
+  line-height: 14px;
 }
 
 /* post list */
-/* line 190, sass/style.scss */
-ul.posts li {
+/* line 213, sass/style.scss */
+ul.posts li, ul.tags li, ul.files li {
   margin-bottom: 6px;
 }
-/* line 193, sass/style.scss */
-ul.posts li a {
+/* line 216, sass/style.scss */
+ul.posts li a, ul.tags li a, ul.files li a {
   text-decoration: none;
   border-bottom: 1px solid #eeeeee;
   transition: border 100ms linear;
 }
-/* line 198, sass/style.scss */
-ul.posts li a:hover {
+/* line 221, sass/style.scss */
+ul.posts li a:hover, ul.tags li a:hover, ul.files li a:hover {
   border-bottom: 1px solid #111111;
 }
 
 /* forms */
-/* line 208, sass/style.scss */
+/* line 231, sass/style.scss */
 input[type=text], input[type=password] {
   font-size: 30px;
   line-height: 30px;
   padding: 6px 8px;
 }
 
-/* line 214, sass/style.scss */
+/* line 237, sass/style.scss */
 input[name=title] {
   width: 100%;
   font-weight: 500;
@@ -277,7 +300,12 @@ input[name=title] {
   padding: 6px 8px;
 }
 
-/* line 221, sass/style.scss */
+/* line 244, sass/style.scss */
+input[name=tags] {
+  width: 100%;
+}
+
+/* line 248, sass/style.scss */
 #editor {
   /* ace */
   width: 100%;
@@ -286,7 +314,7 @@ input[name=title] {
   outline: 1px solid #ccc;
 }
 
-/* line 228, sass/style.scss */
+/* line 255, sass/style.scss */
 input.datetime {
   float: right;
   display: block;
@@ -294,7 +322,7 @@ input.datetime {
   margin-bottom: 10px;
 }
 
-/* line 235, sass/style.scss */
+/* line 262, sass/style.scss */
 .set-date-btn, .toggle-status-btn {
   float: right;
   padding: 14px 12px;
@@ -304,11 +332,11 @@ input.datetime {
   margin-top: 6px;
 }
 
-/* line 245, sass/style.scss */
+/* line 272, sass/style.scss */
 .login-form input, #primary input {
   margin-bottom: 6px;
 }
-/* line 249, sass/style.scss */
+/* line 276, sass/style.scss */
 .login-form input[type=submit], #primary input[type=submit] {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -323,88 +351,108 @@ input.datetime {
 }
 
 /* post display */
-/* line 265, sass/style.scss */
+/* line 292, sass/style.scss */
 div.post {
   margin-bottom: 40px;
 }
-/* line 268, sass/style.scss */
+/* line 295, sass/style.scss */
 div.post .head {
   margin-bottom: 10px;
 }
-/* line 271, sass/style.scss */
+/* line 298, sass/style.scss */
 div.post .head h1 {
   display: inline-block;
   font-size: 36px;
   line-height: 42px;
   margin-right: 6px;
 }
-/* line 277, sass/style.scss */
+/* line 304, sass/style.scss */
 div.post .head h1 a {
   color: #111111;
   text-decoration: none;
   border-bottom: 1px solid #111111;
 }
-/* line 285, sass/style.scss */
+/* line 312, sass/style.scss */
 div.post .date.published {
   display: inline-block;
   text-transform: uppercase;
   font-size: 16px;
 }
-/* line 293, sass/style.scss */
+/* line 320, sass/style.scss */
 div.post .content h1, div.post .content h2, div.post .content h3, div.post .content h4, div.post .content h5, div.post .content h6 {
   margin-top: 16px;
 }
-/* line 297, sass/style.scss */
+/* line 324, sass/style.scss */
 div.post .content h1 {
   font-size: 26px;
   line-height: 22px;
   margin-bottom: 8px;
 }
-/* line 303, sass/style.scss */
+/* line 330, sass/style.scss */
 div.post .content h2 {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 308, sass/style.scss */
+/* line 335, sass/style.scss */
 div.post .content h3 {
   font-size: 20px;
   line-height: 20px;
 }
-/* line 313, sass/style.scss */
+/* line 340, sass/style.scss */
 div.post .content h4 {
   font-size: 18px;
   line-height: 18px;
 }
-/* line 318, sass/style.scss */
+/* line 345, sass/style.scss */
 div.post .content img {
   border: none;
   margin: 10px 0px;
   max-width: 620px;
 }
-/* line 324, sass/style.scss */
+/* line 351, sass/style.scss */
 div.post .content ul {
   margin: 10px 0px 10px;
   padding-left: 6px;
 }
-/* line 328, sass/style.scss */
+/* line 355, sass/style.scss */
 div.post .content ul li {
   list-style-type: disc;
   list-style-position: inside;
   padding-bottom: 8px;
 }
-/* line 339, sass/style.scss */
+/* line 366, sass/style.scss */
 div.post .content a {
   padding-bottom: 1px;
   border-bottom: 1px dotted #ccc;
   text-decoration: none;
 }
-/* line 344, sass/style.scss */
+/* line 371, sass/style.scss */
 div.post .content a:hover {
   border-bottom: 1px dotted #006789;
 }
+/* line 382, sass/style.scss */
+div.post .tags {
+  padding: 8px 0px;
+  margin-top: 20px;
+}
+/* line 388, sass/style.scss */
+div.post .tags span a {
+  color: #111111;
+  text-decoration: none;
+  padding: 5px 7px;
+  background-color: #eeeeee;
+  font-size: 14px;
+  line-height: 14px;
+  transition: all 0.05s linear;
+}
+/* line 397, sass/style.scss */
+div.post .tags span a:hover {
+  color: #eeeeee;
+  background-color: #111111;
+}
 
 /* admin */
-/* line 359, sass/style.scss */
+/* line 409, sass/style.scss */
 #admin-bar {
   background: #111111;
   font-weight: 300;
@@ -412,7 +460,7 @@ div.post .content a:hover {
   height: 36px;
   color: #fff !important;
 }
-/* line 368, sass/style.scss */
+/* line 418, sass/style.scss */
 #admin-bar.admin a.btn {
   color: #eeeeee;
   outline: none;
@@ -420,43 +468,43 @@ div.post .content a:hover {
 }
 
 /* misc */
-/* line 382, sass/style.scss */
+/* line 432, sass/style.scss */
 .right {
   float: right;
 }
 
-/* line 386, sass/style.scss */
+/* line 436, sass/style.scss */
 .left {
   float: left;
 }
 
-/* line 390, sass/style.scss */
+/* line 440, sass/style.scss */
 .show {
   display: block;
 }
 
-/* line 394, sass/style.scss */
+/* line 444, sass/style.scss */
 .hidden {
   display: none !important;
   visibility: hidden !important;
 }
 
-/* line 399, sass/style.scss */
+/* line 449, sass/style.scss */
 .hide {
   display: none;
 }
 
-/* line 403, sass/style.scss */
+/* line 453, sass/style.scss */
 .ninja {
   visibility: hidden;
 }
 
-/* line 407, sass/style.scss */
+/* line 457, sass/style.scss */
 .ghost {
   opacity: 0.334;
 }
 
-/* line 411, sass/style.scss */
+/* line 461, sass/style.scss */
 .blink {
   /* oh, yes */
   -webkit-animation: blink 1.4s step-end infinite;
@@ -465,24 +513,24 @@ div.post .content a:hover {
 
 /* animations */
 @-webkit-keyframes blink {
-  /* line 419, sass/style.scss */
+  /* line 469, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 423, sass/style.scss */
+  /* line 473, sass/style.scss */
   50% {
     opacity: 0;
   }
 }
 
 @keyframes blink {
-  /* line 429, sass/style.scss */
+  /* line 479, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 433, sass/style.scss */
+  /* line 483, sass/style.scss */
   50% {
     opacity: 0;
   }

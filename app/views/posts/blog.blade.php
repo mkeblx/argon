@@ -25,7 +25,7 @@ No posts yet.
 <div class="head">
 	<h1><a href="{{ '/'.$post->slug.'/'.$hash }}">{{ $post->title }}</a></h1>
 	<div class="date published" title="{{ $post->published_at }}">
-		{{ Date::parse($post->published_at)->format('j M Y') }}
+		{{ $post->pubdate() }}
 	</div>
 </div>
 
@@ -33,7 +33,11 @@ No posts yet.
 {{ $post->content }}
 </div>
 
-{{-- tags --}}
+<div class="tags">
+@foreach($post->tags as $tag)
+	<span><a href="{{ route('tags.show', $tag->slug) }}">{{ '<b>#</b>'.$tag->name }}</a></span>
+@endforeach
+</div>
 
 </div>
 @endforeach

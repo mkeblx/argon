@@ -19,7 +19,13 @@ foreach ($errors->all() as $message) {
 
 {{ Form::hidden('content', null, ['id' => 'model-content']) }}
 
+{{ Form::text('tags', null, ['class' => 'tags', 'placeholder' => 'tags']) }}
+
 {{ Form::text('published_at', Date::now(), ['class' => 'datetime']) }}
+
+{{ Form::hidden('status', 'draft') }}
+
+<span class="btn toggle-status-btn">{{ 'draft' }}</span>
 
 {{ Form::submit('create') }}
 

@@ -12,12 +12,14 @@
 
 {{ Form::hidden('content', null, ['id' => 'model-content']) }}
 
+{{ Form::text('tags', implode(',', $tags), ['class' => 'tags', 'placeholder' => 'tags']) }}
+
 {{ Form::text('published_at', null, ['class' => 'datetime']) }}
 
 {{ Form::hidden('status') }}
 
 <span class="btn set-date-btn" data-datetime="{{Date::now()}}">set to now</span>
-<span class="btn toggle-status-btn" data-datetime="{{Date::now()}}">{{ $post->status }}</span>
+<span class="btn toggle-status-btn">{{ $post->status }}</span>
 
 {{ Form::submit('save') }}
 

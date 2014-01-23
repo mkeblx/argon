@@ -13,10 +13,12 @@ class FileController extends BaseController {
 
 	public function add()
 	{
-		//handle upload
-		Input::hasFile('filename');
+		return View::make('files.add');
+	}
 
-		return Redirect::to('dashboard');
+	public function upload()
+	{
+
 	}
 
 	public function get($name)

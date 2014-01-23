@@ -21,7 +21,7 @@ No drafts.
 @foreach ($drafts as $p)
 	<li><a href="{{ '/'.$p->slug.'/'.$hashids->encrypt($p->id) }}">{{ $p->title }}</a> &middot;
 	<span class="date published" title="{{ $p->published_at }}">
-		{{ Date::parse($p->updated_at)->format('j M Y') }}
+		{{ $p->pubdate() }}
 	</span>
 	</li>
 @endforeach
@@ -37,7 +37,7 @@ No posts yet.
 @foreach ($posts as $p)
 	<li><a href="{{ '/'.$p->slug.'/'.$hashids->encrypt($p->id) }}">{{ $p->title }}</a> &middot;
 	<span class="date published" title="{{ $p->published_at }}">
-		{{ Date::parse($p->published_at)->format('j M Y') }}
+		{{ $p->pubdate() }}
 	</span>
 	</li>
 @endforeach

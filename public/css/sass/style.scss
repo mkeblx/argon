@@ -32,6 +32,11 @@ h1 {
 	line-height: 28px;
 }
 
+h1.lrg {
+	font-size: 38px;
+	line-height: 38px;
+}
+
 h2 {
 	font-size: 24px;
 	line-height: 24px;
@@ -91,11 +96,11 @@ blockquote {
 	font-weight: 100;
 }
 
-em {
+em, i {
 	font-style: italic;
 }
 
-strong {
+strong, b {
 	font-weight: 400;
 }
 
@@ -177,15 +182,33 @@ ul.pagination, ul.pager {
 	color: #111;
 }
 
+/*
+@media all and (max-width: 640px) {
+
+	#container {
+		width: 620px;
+	}
+
+	#primary {
+		width: 100%;
+	}
+
+	#sidebar {
+		display: none;
+	}
+
+}
+*/
+
 #footer { 
 	margin-top: 80px;
-	font-size: 13px;
-	line-height: 13px;
+	font-size: 14px;
+	line-height: 14px;
 }
 
 /* post list */
 
-ul.posts {
+ul.posts, ul.tags, ul.files {
 
 	li {
 		margin-bottom: 6px;
@@ -216,6 +239,10 @@ input[name=title] {
 	font-weight: 500;
 	border: 1px solid #ccc;
 	padding: 6px 8px;
+}
+
+input[name=tags] {
+	width: 100%;
 }
 
 #editor { /* ace */
@@ -350,6 +377,29 @@ div.post {
 
 		}
 
+	}
+
+	.tags {
+		padding: 8px 0px;
+		margin-top: 20px;
+
+		span {
+
+			a {
+				color: $dark;
+				text-decoration: none;
+				padding: 5px 7px;
+				background-color: $light;
+				font-size: 14px;
+				line-height: 14px;
+				transition: all 0.05s linear;
+
+				&:hover {
+					color: $light;
+					background-color: $dark;
+				}
+			}
+		}
 	}
 
 }

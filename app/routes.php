@@ -1,20 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
-define('SLUG', '[A-Za-z0-9-]+');
-define('ID',   '[A-Za-z0-9]+');
-define('ANUM', '[A-Za-z0-9]+');
-define('NUM',  '[0-9]+');
+define('SLUG',  '[A-Za-z0-9-]+');
+define('ID',    '[A-Za-z0-9]+');
+define('ALPHA', '[A-Za-z]+');
+define('NUM',   '[0-9]+');
+define('ANUM',  '[A-Za-z0-9]+');
+define('HEX',   '[A-Fa-f0-9]+');
 
 //auth
 Route::get('login', ['as' => 'login', 'uses' => 'AuthController@login']);
@@ -26,6 +17,8 @@ Route::get('/{blog?}', ['uses' => 'PostController@blog'])
 	->where('blog','blog');
 Route::get('feed', ['as' => 'feed', 'uses' => 'PostController@feed']);
 
+
+//admin
 Route::group(['before' => 'auth'], function(){
 	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'AuthController@dashboard']);
 
@@ -36,9 +29,15 @@ Route::group(['before' => 'auth'], function(){
 		->where('slug', SLUG);
 	Route::post('blocks', ['as' => 'blocks.store', 'uses' => 'BlockController@store']);
 
+	Route::get('tags', ['as' => 'tags', 'uses' => 'TagController@index']);
+
 	Route::get('files', ['as' => 'files', 'uses' => 'FileController@index']);
-	Route::get('files', ['as' => 'files.add', 'uses' => 'FileController@index']);
+	Route::any('files/add', ['as' => 'files.add', 'uses' => 'FileController@add']);
 });
+
+
+Route::get('tags/{slug}', ['as' => 'tags.show', 'uses' => 'TagController@show'])
+	->where('slug', SLUG);
 
 Route::get('{slug}/{id}', ['uses' => 'PostController@display'])
 	->where(['slug' => SLUG, 'id' => ID]);

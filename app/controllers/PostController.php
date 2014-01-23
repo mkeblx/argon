@@ -42,7 +42,6 @@ class PostController extends BaseController {
 		$feed->link = URL::to('feed');
 		$feed->pubdate = $posts[0]->created_at;
 		$feed->lang = 'en';
-
 		
 		foreach ($posts as $post) {
 			$hash = $hashids->encrypt($post->id);
@@ -83,14 +82,15 @@ class PostController extends BaseController {
 
 	public function store()
 	{
-		$data = Input::except('_method','_token');
+		$data = Input::except('_method','_token', 'tags');
 
 		$validator = Post::validate($data);
 		if ($validator->passes()) {
-			Post::create($data);
+			$post = Post::create($data);
+			$post->addTags(Input::get('tags'));
 		} else {
 			return Redirect::to('posts/create')
-				->withInput(Input::get())
+				->withInput($data)
 				->withErrors($validator);
 		}
 
@@ -124,17 +124,25 @@ class PostController extends BaseController {
 	{
 		$post = Post::findOrFail($id);
 
+		$tags = array_pluck($post->tags->toArray(), 'name');
+
 		return
 			View::make('posts.edit')
-				->with('post', $post);
+				->with('post', $post)
+				->with('tags', $tags);
 	}
 
 	public function update($id)
 	{
-		$data = Input::except('_method','_token');
+		$data = Input::except('_method','_token', 'tags');
 		
 		$data['slug'] = Str::slug($data['title']);
-		$post = Post::where('id','=',$id);
+		$post = Post::find($id);
+		
+		if (!$post)
+			App::abort(404, 'Post not found');
+
+		$post->addTags(Input::get('tags'));
 		$post->update($data);
 
 		return Redirect::to('posts');

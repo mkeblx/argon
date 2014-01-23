@@ -8,7 +8,22 @@ class Post extends Eloquent {
 	protected $fillable = ['title','slug','content','type','status','published_at'];
 
 	public function tags() {
-		return $this->belongsToMany('Tag');
+		return $this->belongsToMany('Tag')->withTimestamps();
+	}
+
+	public function addTags($tags) {
+		self::tags()->detach();
+
+		$tags = explode(',', $tags);
+
+		foreach ($tags as $name) {
+			$name = trim($name);
+
+			$tag = Tag::firstOrCreate(['name' => $name]);
+
+			self::tags()->attach($tag);
+		}
+
 	}
 
 	public static function boot() {
@@ -28,6 +43,21 @@ class Post extends Eloquent {
 		$validator = Validator::make($data, $rules);
 
 		return $validator;
+	}
+
+	//relative date if within day
+	public function pubdate($rel = true) {
+		$now = Date::now();
+		$published_at = $this->attributes['published_at'];
+		$published_at = Date::parse($published_at);
+
+		if ($now->diffInDays($published_at) <= 3) {
+			$pubDate = $published_at->diffForHumans();
+		} else {
+			$pubDate = $published_at->format('j M Y');
+		}
+
+		return $pubDate;
 	}
 
 	public function getParsedContentAttribute() {
