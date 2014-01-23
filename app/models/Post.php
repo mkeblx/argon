@@ -19,6 +19,9 @@ class Post extends Eloquent {
 		foreach ($tags as $name) {
 			$name = trim($name);
 
+			if ($name == '')
+				continue;
+
 			$tag = Tag::firstOrCreate(['name' => $name]);
 
 			self::tags()->attach($tag);

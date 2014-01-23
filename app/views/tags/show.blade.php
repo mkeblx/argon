@@ -12,12 +12,6 @@ $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']
 
 @section('content')
 
-<?
-
-$posts = $tag->posts();
-
-?>
-
 <h1 class="lrg"><b>#</b>{{ $tag->name }}</h1>
 @if (!count($tag->posts))
 No posts with this tag.
@@ -31,13 +25,15 @@ No posts with this tag.
 <div class="head">
 	<h1><a href="{{ '/'.$post->slug.'/'.$hash }}">{{ $post->title }}</a></h1>
 	<div class="date published" title="{{ $post->published_at }}">
-		{{ Date::parse($post->published_at)->format('j M Y') }}
+		{{ $post->pubdate() }}
 	</div>
 </div>
 
 <div class="content">
 {{ $post->content }}
 </div>
+
+@include('partials.tags')
 
 </div>
 @endforeach
