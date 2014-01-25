@@ -9,7 +9,10 @@
 @stop
 
 @section('content')
-<div class="post type-{{'std'}} status-{{$post->status}}" id="post-{{$post->hash}}">
+
+<div id="post-{{$post->hash}}"
+	class="post type-{{'std'}} status-{{$post->status}}"
+	data-views="{{ count($post->stats) }}">
 
 <div class="head">
 	<h1>{{ $post->title }}</h1>

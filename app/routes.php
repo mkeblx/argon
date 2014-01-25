@@ -36,7 +36,7 @@ Route::group(['before' => 'auth'], function(){
 });
 
 
-Route::get('tags/{slug}', ['as' => 'tags.show', 'uses' => 'TagController@show'])
+Route::get('tag/{slug}', ['as' => 'tags.show', 'uses' => 'TagController@show'])
 	->where('slug', SLUG);
 
 Route::get('{slug}/{id}', ['uses' => 'PostController@display'])

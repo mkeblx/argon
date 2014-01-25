@@ -16,11 +16,12 @@ No posts yet.
 @else
 
 @foreach ($posts as $post)
-<? $hash = $post->hash; ?>
-<div class="post type-{{'std'}} status-{{$post->status}}" id="post-{{$hash}}">
+<div id="post-{{$post->hash}}"
+	class="post type-{{'std'}} status-{{$post->status}}"
+	data-views="{{ count($post->stats) }}">
 
 <div class="head">
-	<h1><a href="{{ '/'.$post->slug.'/'.$hash }}">{{ $post->title }}</a></h1>
+	<h1><a href="{{ '/'.$post->slug.'/'.$post->hash }}">{{ $post->title }}</a></h1>
 	<div class="date published" title="{{ $post->published_at }}">
 		{{ $post->pubdate() }}
 	</div>

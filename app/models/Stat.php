@@ -33,11 +33,11 @@ class Stat extends Eloquent {
 	}	
 
 	public function post() {
-		return $this->belongsToMany('Post');
+		return $this->belongsTo('Post');
 	}
 
 	public function block() {
-		return $this->belongsToMany('Block');
+		return $this->belongsTo('Block');
 	}
 
 	public function validate($data) {

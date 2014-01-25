@@ -11,6 +11,14 @@ class Post extends Eloquent {
 		return $this->belongsToMany('Tag')->withTimestamps();
 	}
 
+	//views
+	public function stats() {
+		return
+			$this->hasMany('Stat', 'type_id')
+				->where('type', 'posts')
+				->where('metric', 'view');
+	}
+
 	public function addTags($tags) {
 		self::tags()->detach();
 
@@ -72,6 +80,20 @@ class Post extends Eloquent {
 
 	public function getParsedContentAttribute() {
 		return $this->attributes['content'];
+	}
+
+	public function scopeRecent($query, $num = 5) {
+		$now = Date::now();
+		return
+			$query->where('published_at', '<', $now)
+						->where('status', 'final')
+						->orderBy('published_at', 'desc')
+						->take($num);
+	}
+
+	public function scopePopular() {
+		$now = Date::now();
+		return $query; //todo: base on # views
 	}
 
 	public function scopePublished($query) {
