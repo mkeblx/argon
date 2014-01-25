@@ -25,9 +25,6 @@ class PostController extends BaseController {
 	{
 		$NUM_POSTS = 16;
 
-		$c = Config::get('hashids');
-		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-
 		$posts =
 			Post::published()
 				->orderBy('published_at', 'desc')
@@ -44,8 +41,7 @@ class PostController extends BaseController {
 		$feed->lang = 'en';
 		
 		foreach ($posts as $post) {
-			$hash = $hashids->encrypt($post->id);
-			$url = Config::get('app.url').'/'.$post->slug.'/'.$hash;
+			$url = Config::get('app.url').'/'.$post->slug.'/'.$post->hash;
 			$feed->add($post->title, '', $url, $post->published_at, $post->content);
 		}
 
@@ -97,27 +93,17 @@ class PostController extends BaseController {
 		return Redirect::to('posts');
 	}
 
-	public function display($slug, $id)
+	public function display($slug, $hash)
 	{
-		$c = Config::get('hashids');
-		$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
+		$hash = Str::lower($hash);
 
-		$id = Str::lower($id);
-
-		$de = $hashids->decrypt($id);
-		if (is_array($de) && count($de))
-			$_id = $de[0];
-		else
-			App::abort(404, 'Post not found');
-
-		$post = Post::findOrFail($_id);
+		$post = Post::where('hash', $hash)->firstOrFail();
 
 		Event::fire('post.display', [$post]);
 
 		return
 			View::make('posts.show')
-				->with('post', $post)
-				->with('id', $id);
+				->with('post', $post);
 	}
 
 	public function edit($id)

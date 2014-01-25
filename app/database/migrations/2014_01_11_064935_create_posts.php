@@ -10,6 +10,7 @@ class CreatePosts extends Migration {
 		Schema::create('posts', function(Blueprint $t)
 		{
 			$t->increments('id');
+			$t->string('hash', 32);
 			$t->string('title', 256);
 			$t->string('slug', 256);
 			$t->text('content');

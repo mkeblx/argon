@@ -270,17 +270,17 @@ ul.pagination li a:hover, ul.pager li a:hover {
 
 /* post list */
 /* line 213, sass/style.scss */
-ul.posts li, ul.tags li, ul.files li {
+ul.posts li, ul.tags li, ul.files li, ul.blocks li, ul.entity li {
   margin-bottom: 6px;
 }
 /* line 216, sass/style.scss */
-ul.posts li a, ul.tags li a, ul.files li a {
+ul.posts li a, ul.tags li a, ul.files li a, ul.blocks li a, ul.entity li a {
   text-decoration: none;
   border-bottom: 1px solid #eeeeee;
   transition: border 100ms linear;
 }
 /* line 221, sass/style.scss */
-ul.posts li a:hover, ul.tags li a:hover, ul.files li a:hover {
+ul.posts li a:hover, ul.tags li a:hover, ul.files li a:hover, ul.blocks li a:hover, ul.entity li a:hover {
   border-bottom: 1px solid #111111;
 }
 
@@ -467,44 +467,66 @@ div.post .tags span a:hover {
   margin-top: 6px;
 }
 
-/* misc */
+/* dashboard */
 /* line 432, sass/style.scss */
+#chart {
+  margin-top: 20px;
+}
+/* line 435, sass/style.scss */
+#chart > div {
+  background-color: #eeeeee;
+  margin-bottom: 1px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 3px;
+  text-align: right;
+  margin-bottom: 2px;
+  transition: background 0.2s linear;
+}
+/* line 448, sass/style.scss */
+#chart > div:hover {
+  background-color: #ddd;
+}
+
+/* misc */
+/* line 456, sass/style.scss */
 .right {
   float: right;
 }
 
-/* line 436, sass/style.scss */
+/* line 460, sass/style.scss */
 .left {
   float: left;
 }
 
-/* line 440, sass/style.scss */
+/* line 464, sass/style.scss */
 .show {
   display: block;
 }
 
-/* line 444, sass/style.scss */
+/* line 468, sass/style.scss */
 .hidden {
   display: none !important;
   visibility: hidden !important;
 }
 
-/* line 449, sass/style.scss */
+/* line 473, sass/style.scss */
 .hide {
   display: none;
 }
 
-/* line 453, sass/style.scss */
+/* line 477, sass/style.scss */
 .ninja {
   visibility: hidden;
 }
 
-/* line 457, sass/style.scss */
+/* line 481, sass/style.scss */
 .ghost {
   opacity: 0.334;
 }
 
-/* line 461, sass/style.scss */
+/* line 485, sass/style.scss */
 .blink {
   /* oh, yes */
   -webkit-animation: blink 1.4s step-end infinite;
@@ -513,24 +535,24 @@ div.post .tags span a:hover {
 
 /* animations */
 @-webkit-keyframes blink {
-  /* line 469, sass/style.scss */
+  /* line 493, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 473, sass/style.scss */
+  /* line 497, sass/style.scss */
   50% {
     opacity: 0;
   }
 }
 
 @keyframes blink {
-  /* line 479, sass/style.scss */
+  /* line 503, sass/style.scss */
   0% {
     opacity: 1;
   }
 
-  /* line 483, sass/style.scss */
+  /* line 507, sass/style.scss */
   50% {
     opacity: 0;
   }

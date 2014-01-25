@@ -208,7 +208,7 @@ ul.pagination, ul.pager {
 
 /* post list */
 
-ul.posts, ul.tags, ul.files {
+ul.posts, ul.tags, ul.files, ul.blocks, ul.entity {
 
 	li {
 		margin-bottom: 6px;
@@ -425,6 +425,30 @@ div.post {
 
 .admin {
 
+}
+
+/* dashboard */
+
+#chart {
+	margin-top: 20px;
+
+	> div {
+		background-color: $light;
+		margin-bottom: 1px;
+		height: 18px;
+
+		font-size: 12px;
+		line-height: 12px;
+		padding: 3px;
+		text-align: right;
+		margin-bottom: 2px;
+
+		transition: background 0.2s linear;
+
+		&:hover {
+			background-color: #ddd;
+		}
+	}
 }
 
 /* misc */

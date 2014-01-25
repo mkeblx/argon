@@ -14,7 +14,7 @@ class AuthController extends BaseController {
 		$credentials = Input::only('username', 'password');
 		$remember = true;
 		if (Auth::attempt($credentials, $remember)) {
-			Event::fire('user.login', [Auth::user()]);
+			Event::fire('user.login');
 
 			return Redirect::intended('/');
 		}
@@ -26,9 +26,18 @@ class AuthController extends BaseController {
 		return Redirect::to('/');
 	}
 
-	//move
 	public function dashboard() {
-		return View::make('dashboard');
+		$posts = Stat::getAll('view', 'posts');
+		$blog  = Stat::getAllBlog();
+
+		$stats = [
+			'posts' => $posts,
+			'blog' => $blog
+			];
+
+		return
+			View::make('dashboard')
+				->with('stats', $stats);
 	}
 
 }

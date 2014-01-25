@@ -11,10 +11,26 @@ class Stat extends Eloquent {
 		parent::boot();
 
 		static::creating(function($post){
-			if (Auth::check())
+			if (Auth::check()) //ignore if self
 				return false;
 		});
 	}
+
+	public static function getAll($metric = 'view', $type = 'posts') {
+		return self::where('metric','=', $metric)
+				->where('type', $type)
+				->get();
+	}
+
+	public static function getAllBlog() {
+		return DB::table('stats')
+				->select('id', DB::raw('date(created_at) as date'), DB::raw('count(id) as n'))
+				->where('metric','view')
+				->where('type', 'blog')
+				->groupBy(DB::raw('date(created_at)'))
+				->orderBy('created_at')
+				->get();
+	}	
 
 	public function post() {
 		return $this->belongsToMany('Post');

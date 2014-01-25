@@ -1,6 +1,8 @@
 @extends('layouts.default')
 
-@section('title') blog @stop
+@section('title')
+{{ Config::get('app.title') }}
+@stop
 
 @section('admin')
 	<a class="btn" href="{{ route('posts.index') }}">posts</a>
@@ -9,17 +11,12 @@
 
 @section('content')
 
-<?
-$c = Config::get('hashids');
-$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-?>
-
 @if (!count($posts))
 No posts yet.
 @else
 
 @foreach ($posts as $post)
-<? $hash = $hashids->encrypt($post->id); ?>
+<? $hash = $post->hash; ?>
 <div class="post type-{{'std'}} status-{{$post->status}}" id="post-{{$hash}}">
 
 <div class="head">
@@ -38,7 +35,7 @@ No posts yet.
 </div>
 @endforeach
 
-<?php echo $posts->links(); ?>
+<?= $posts->links() ?>
 
 @endif
 

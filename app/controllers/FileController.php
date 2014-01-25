@@ -13,12 +13,19 @@ class FileController extends BaseController {
 
 	public function add()
 	{
-		return View::make('files.add');
-	}
+		if (!Input::hasFile('filename')) {
+			return View::make('files.add');
+		}
 
-	public function upload()
-	{
+		$file = Input::file('filename');
+		$name = $file->getClientOriginalName();
 
+		$file->move(public_path().'/uploads', $name);
+		
+		return Redirect::to('files');
+
+		$data = [];
+		\argon\File::create($data);
 	}
 
 	public function get($name)

@@ -32,6 +32,13 @@ class Post extends Eloquent {
 	public static function boot() {
 		parent::boot();
 
+		static::creating(function($post){
+			$c = Config::get('hashids');
+			$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
+
+			$post->hash = $hashids->encrypt(rand());
+		});
+
 		static::saving(function($post){
 			$post->slug = Str::slug($post->title);
 		});
