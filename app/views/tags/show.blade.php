@@ -12,7 +12,10 @@ $hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']
 
 @section('content')
 
-<h1 class="lrg"><b>#</b>{{ $tag->name }}</h1>
+<div class="tag-header">
+<h1><b>#</b>{{ $tag->name }}</h1>
+<h2>{{ ($tag->description)?$tag->description:'&nbsp;' }}</h2>
+</div>
 @if (!count($tag->posts))
 No posts with this tag.
 @endif
