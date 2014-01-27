@@ -5,7 +5,7 @@ $dark: #111;
 $light: #eee;
 $link: #006789;
 
-$cWidth: 620px;
+$cWidth: 640px;
 
 *, *:before, *:after { /* as it should be */
 	box-sizing: border-box;
@@ -161,13 +161,14 @@ ul.pagination, ul.pager {
 /* basic layout */
 
 #container {
-	margin: 20px;
+	margin: 0 auto;
 	font-weight: 300;
 	width: 960px;
+	padding: 20px;
 }
 
 #sidebar {
-	width: 300px;
+	width: 260px;
 	float: right;
 }
 
@@ -176,7 +177,7 @@ ul.pagination, ul.pager {
 }
 
 #primary {
-	width: 640px;
+	width: $cWidth;
 
 	font-weight: 300;
 	color: #111;
@@ -444,6 +445,23 @@ div.post {
 
 #chart {
 	margin-top: 20px;
+
+	rect {
+		fill: $light;
+		pointer-events: all;
+
+		transition: fill 0.2s linear;
+
+		&:hover {
+			fill: #ddd;
+		}
+	}
+
+	text {
+		fill: $dark;
+		font-size: 14px;
+  	text-anchor: end;
+	}
 
 	> div {
 		background-color: $light;

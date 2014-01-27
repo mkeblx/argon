@@ -23,13 +23,31 @@ class Stat extends Eloquent {
 	}
 
 	public static function getAllBlog() {
-		return DB::table('stats')
-				->select('id', DB::raw('date(created_at) as date'), DB::raw('count(id) as n'))
+		$_stats = DB::table('stats')
+				->select(DB::raw('date(created_at) as date'), DB::raw('count(id) as n'))
 				->where('metric','view')
 				->where('type', 'blog')
+				->where('created_at', '>', Date::now()->subMonth())
 				->groupBy(DB::raw('date(created_at)'))
 				->orderBy('created_at')
 				->get();
+
+		//ugly
+		$today = Date::today();		
+		$numDays = 30;
+
+		$stats = [];
+
+		$day = $today;
+		foreach (range(0, $numDays) as $i) {
+			$day = $day->subDay();
+			$stats[$day->toDateString()] = ['n' => 0, 'date' => $day->toDateString()];
+		}
+		foreach ($_stats as $stat) {
+			$stats[$stat->date]['n'] = (int)$stat->n;
+		}
+
+		return array_values($stats);
 	}	
 
 	public function post() {
