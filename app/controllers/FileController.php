@@ -4,7 +4,7 @@ class FileController extends BaseController {
 
 	public function index()
 	{
-		$files = argon\File::all();
+		$files = File::files(public_path().'/uploads');
 
 		return
 			View::make('files.index')
@@ -13,6 +13,8 @@ class FileController extends BaseController {
 
 	public function add()
 	{
+		$upload_dir = '/uploads';
+
 		if (!Input::hasFile('filename')) {
 			return View::make('files.add');
 		}
@@ -20,12 +22,26 @@ class FileController extends BaseController {
 		$file = Input::file('filename');
 		$name = $file->getClientOriginalName();
 
-		$file->move(public_path().'/uploads', $name);
-		
-		return Redirect::to('files');
+		$rename = Input::get('rename', '');
 
-		$data = [];
-		\argon\File::create($data);
+		if ($rename)
+			$name = $rename;
+		
+		$data = [
+			'name' => $name,
+			'path' => $upload_dir.'/'.$name,
+			'mime' => $file->getMimeType(),
+			'size' => $file->getSize()
+		];
+
+		$dest = public_path().$upload_dir;
+		$uploaded = $file->move($dest, $name);
+		
+		if ($uploaded) {
+			$_file = \argon\File::create($data);
+		}
+
+		return Redirect::to('files');
 	}
 
 	public function get($name)

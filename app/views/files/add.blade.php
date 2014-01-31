@@ -5,11 +5,11 @@
 @section('content')
 <h2>upload file</h2>
 
-{{ Form::open(['route' => 'files.add', 'class' => 'upload-form']) }}
+{{ Form::open(['route' => 'files.add', 'class' => 'upload-form', 'files' => true]) }}
 
-{{ Form::file('filename') }}
+{{ Form::file('filename') }} <br>
 
-<br>
+{{ Form::text('rename', null, ['placeholder' => 'rename']) }} <br>
 
 {{ Form::submit('upload', ['class' => 'button']) }}
 

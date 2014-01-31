@@ -14,7 +14,11 @@
 @endif
 <ul class="files">
 @foreach ($files as $f)
-	<li><a href="{{ $f->path }}">{{ $f->name }}</a></li>
+<?
+	$name = basename($f);
+	$url = '/uploads/'.$name;
+?>
+	<li><a href="{{ $url }}">{{ $name }}</a></li>
 @endforeach
 </ul>
 
