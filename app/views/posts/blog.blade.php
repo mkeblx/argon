@@ -7,6 +7,7 @@
 @section('admin')
 	<a class="btn" href="{{ route('posts.index') }}">posts</a>
 	<a class="btn" href="{{ route('blocks.index') }}">blocks</a>
+	<a class="btn" href="{{ route('files') }}">files</a>	
 @stop
 
 @section('content')

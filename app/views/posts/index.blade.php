@@ -14,6 +14,20 @@ No drafts.
 @endif
 <ul class="posts">
 @foreach ($drafts as $p)
+	<li><a href="{{ '/'.$p->slug.'/'.$p->hash }}">{{ $p->title }}</a>
+	<span class="date">
+	</span>
+	</li>
+@endforeach
+</ul>
+
+<br>
+<?
+?>
+@if(count($scheduled))
+<h2>scheduled</h2>
+<ul class="posts">
+@foreach ($scheduled as $p)
 	<li><a href="{{ '/'.$p->slug.'/'.$p->hash }}">{{ $p->title }}</a> &middot;
 	<span class="date published" title="{{ $p->published_at }}">
 		{{ $p->pubdate() }}
@@ -21,6 +35,7 @@ No drafts.
 	</li>
 @endforeach
 </ul>
+@endif
 
 <br>
 

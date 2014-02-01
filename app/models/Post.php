@@ -96,6 +96,12 @@ class Post extends Eloquent {
 		return $query; //todo: base on # views
 	}
 
+	public function scopeScheduled($query) {
+		$now = Date::now();
+		return $query->where('published_at', '>', $now)
+								 ->where('status', 'final');
+	}
+
 	public function scopePublished($query) {
 		$now = Date::now();
 		return $query->where('published_at', '<', $now)

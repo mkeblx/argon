@@ -62,13 +62,19 @@ class PostController extends BaseController {
 				->orderBy('updated_at', 'desc')
 				->get();
 
+		$scheduled =
+			Post::scheduled()
+				->orderBy('published_at', 'desc')
+				->get();
+
 		if (Request::ajax())
 			return $posts;
 
 		return
 			View::make('posts.index')
 				->with('posts', $posts)
-				->with('drafts', $drafts);
+				->with('drafts', $drafts)
+				->with('scheduled', $scheduled);
 	}
 
 	public function create()
