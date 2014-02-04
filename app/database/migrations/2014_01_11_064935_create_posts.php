@@ -13,6 +13,7 @@ class CreatePosts extends Migration {
 			$t->string('hash', 32);
 			$t->string('title', 256);
 			$t->string('slug', 256);
+			$t->text('subtitle');
 			$t->text('content');
 			$t->string('status', 32)->default('draft');
 			$t->dateTime('published_at');

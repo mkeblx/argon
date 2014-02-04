@@ -5,7 +5,7 @@ class Post extends Eloquent {
 	protected $table = 'posts';
 	protected $softDelete = true;
 
-	protected $fillable = ['title','slug','content','type','status','published_at'];
+	protected $fillable = ['title','slug','subtitle','content','type','status','published_at'];
 
 	public function tags() {
 		return $this->belongsToMany('Tag')->withTimestamps();

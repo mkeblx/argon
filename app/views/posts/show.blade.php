@@ -19,6 +19,9 @@
 	<div class="date published" title="{{ $post->published_at }}">
 		{{ $post->pubdate() }}
 	</div>
+	@if($post->subtitle)
+	<h2>{{ $post->subtitle }}</h2>
+	@endif
 </div>
 
 <div class="content">

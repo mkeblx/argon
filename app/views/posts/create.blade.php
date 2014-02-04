@@ -15,6 +15,8 @@ foreach ($errors->all() as $message) {
 
 {{ Form::text('title', null, ['placeholder' => 'title']) }}
 
+{{ Form::text('subtitle', null, ['placeholder' => 'subtitle']) }}
+
 <pre id="editor"></pre>
 
 {{ Form::hidden('content', null, ['id' => 'model-content']) }}
