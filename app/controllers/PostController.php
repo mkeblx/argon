@@ -4,7 +4,7 @@ class PostController extends BaseController {
 
 	public function blog()
 	{
-		$POSTS_PER_PAGE = 16;
+		$POSTS_PER_PAGE = 3;
 
 		$posts =
 			Post::published()
@@ -105,11 +105,14 @@ class PostController extends BaseController {
 
 		$post = Post::where('hash', $hash)->firstOrFail();
 
+		$neighbors = Post::neighbors($post->id);
+
 		Event::fire('post.display', [$post]);
 
 		return
 			View::make('posts.show')
-				->with('post', $post);
+				->with('post', $post)
+				->with('neighbors', $neighbors);
 	}
 
 	public function edit($id)

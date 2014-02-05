@@ -78,6 +78,32 @@ class Post extends Eloquent {
 		return $pubDate;
 	}
 
+	public static function neighbors($id) {
+		$now = Date::now();
+
+		$posts = DB::table('posts')
+				->select('id','hash','title','slug')
+				->where('published_at', '<', $now)
+				->where('status', 'final')
+				->orderBy('published_at', 'desc')
+				->get();
+
+		$prev = null;
+		$next = null;
+
+		$numPosts = count($posts);
+		for ($i = 0; $i < $numPosts; $i++) {
+			if ($posts[$i]->id == $id) {
+				$prev = ($i != $numPosts-1) ? $posts[$i+1] : null;
+				$next = ($i != 0) ? $posts[$i-1] : null;
+			}
+		}
+
+		return [
+			'prev' => $prev,
+			'next' => $next ];
+	}
+
 	public function getParsedContentAttribute() {
 		return $this->attributes['content'];
 	}

@@ -31,4 +31,17 @@
 @include('partials.tags')
 
 </div>
+
+<?
+$prev = $neighbors['prev'];
+$next = $neighbors['next'];
+?>
+@if($prev || $next)
+<ul class="pagination">
+	@if($prev) <li><a title="{{ $prev->title }}" href="/{{ $prev->slug.'/'.$prev->hash }}">&larr;prev</a></li> @endif
+	@if($prev && $next)&middot;@endif
+	@if($next) <li><a title="{{ $next->title }}" href="/{{ $next->slug.'/'.$next->hash }}">next&rarr;</a></li> @endif
+</ul>
+@endif
+
 @stop

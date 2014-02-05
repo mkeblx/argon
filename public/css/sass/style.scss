@@ -141,12 +141,14 @@ ul.pagination, ul.pager {
 			transition: border 100ms linear;
 
 			&:hover {
-				border-bottom: 1px solid $dark;
+				border-bottom: 1px solid $link;
 			}
 		}
 	}
 
 }
+
+
 
 .error-bar {
 	background-color: #aaa;
