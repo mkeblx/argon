@@ -40,8 +40,9 @@ class Stat extends Eloquent {
 
 		$day = $today;
 		foreach (range(0, $numDays) as $i) {
+			$dStr = $day->toDateString();
+			$stats[$dStr] = ['n' => 0, 'date' => $dStr];
 			$day = $day->subDay();
-			$stats[$day->toDateString()] = ['n' => 0, 'date' => $day->toDateString()];
 		}
 		foreach ($_stats as $stat) {
 			$stats[$stat->date]['n'] = (int)$stat->n;

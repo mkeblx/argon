@@ -14,9 +14,8 @@ dashboard
 <h2>stats</h2>
 
 <div id="stats">
-<h3>post views (<?= count($stats['posts']) ?>)</h3>
 
-<br><br>
+<br>
 <?
 $day_views = array_pluck($stats['blog'], 'n');
 ?>
