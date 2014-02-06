@@ -35,6 +35,7 @@ Route::group(['before' => 'auth'], function(){
 	Route::any('files/add', ['as' => 'files.add', 'uses' => 'FileController@add']);
 });
 
+Route::get('comments/create', ['as' => 'comments.store', 'uses' => 'CommentController']);
 
 Route::get('tag/{slug}', ['as' => 'tags.show', 'uses' => 'TagController@show'])
 	->where('slug', SLUG);

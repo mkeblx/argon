@@ -11,6 +11,10 @@ class Post extends Eloquent {
 		return $this->belongsToMany('Tag')->withTimestamps();
 	}
 
+	public function comments() {
+		return $this->hasMany('Comment')->withTimestamps();
+	}
+
 	//views
 	public function stats() {
 		return
