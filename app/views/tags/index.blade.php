@@ -11,7 +11,7 @@ No tags yet.
 @endif
 <ul class="tags">
 @foreach ($tags as $t)
-	<li><a href="{{ '/tags/'.$t->slug }}">{{ $t->name }}</a></li>
+	<li><a href="{{ '/tag/'.$t->slug }}">{{ $t->name }}</a></li>
 @endforeach
 </ul>
 

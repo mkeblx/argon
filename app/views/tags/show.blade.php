@@ -1,11 +1,5 @@
 @extends('layouts.default')
 
-<?
-$c = Config::get('hashids');
-$hashids = new Hashids\Hashids($c['salt'], $c['min_hash_length'], $c['alphabet']);
-
-?>
-
 @section('title')
 {{{ '#' . $tag->name }}}
 @stop
@@ -22,14 +16,16 @@ No posts with this tag.
 <br>
 
 @foreach ($tag->posts as $post)
-<? $hash = $hashids->encrypt($post->id); ?>
-<div class="post type-{{'std'}} status-{{$post->status}}" id="post-{{$hash}}">
+<div class="post type-{{'std'}} status-{{$post->status}}" id="{{$post->hash}}">
 
 <div class="head">
-	<h1><a href="{{ '/'.$post->slug.'/'.$hash }}">{{ $post->title }}</a></h1>
+	<h1><a href="{{ '/'.$post->slug.'/'.$post->hash }}">{{ $post->title }}</a></h1>
 	<div class="date published" title="{{ $post->published_at }}">
 		{{ $post->pubdate() }}
 	</div>
+	@if($post->subtitle)
+	<h2>{{ $post->subtitle }}</h2>
+	@endif	
 </div>
 
 <div class="content">

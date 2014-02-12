@@ -14,13 +14,10 @@ class BlockController extends BaseController {
 				->with('blocks', $blocks);
 	}
 
-	public function create($slug)
+	public function create()
 	{
-		$block = Block::get($slug, false);
-
 		return
-			View::make('blocks.create')
-				->with('block', $block);
+			View::make('blocks.create');
 	}
 
 	public function store()

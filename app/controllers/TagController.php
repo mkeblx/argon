@@ -13,7 +13,12 @@ class TagController extends BaseController {
 
 	public function show($slug)
 	{
-		$tag = Tag::with('posts')->where('slug', $slug)->firstOrFail();
+		$tag =
+			Tag::with(array('posts' => function($q) {
+					return $q->orderBy('published_at', 'DESC');
+			}))
+			->where('slug', $slug)
+			->firstOrFail();
 
 		Event::fire('tag.show', [$tag]);
 

@@ -7,7 +7,7 @@ class Tag extends Eloquent {
 	protected $fillable = ['name','slug','description','created_at'];
 
 	public function posts() {
-		return $this->belongsToMany('Post');
+		return $this->belongsToMany('Post')->published();
 	}
 
 	public static function boot() {
