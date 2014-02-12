@@ -66,13 +66,14 @@ function drawStats(sel, data){
 
 	bar.append("rect")
 		.attr("width", function(d) { return x(d.n); })
-		.attr("height", barHeight - 2);
+		.attr("height", barHeight - 2)
+		.attr("title", function(d) { return (d.n) ? d.n : null; });
 
 	bar.append("text")
 		.attr("x", function(d) { return x(d.n) - 3; })
 		.attr("y", (barHeight-2) / 2)
 		.attr("dy", ".35em")
-		.text(function(d) { return (d.n) ? d.n : null; });
+		.text(function(d) { return (d.n && (x(d.n) > 10*d.n.toString().length)) ? d.n : null; });
 
 	bar.append("text")
 		.attr("x", function(d) { return - 10; })
