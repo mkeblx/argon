@@ -27,7 +27,7 @@ class AuthController extends BaseController {
 	}
 
 	public function dashboard() {
-		$posts = Stat::getAll('view', 'posts');
+		$posts = Stat::getAllPosts();
 		$blog  = Stat::getAllBlog();
 
 		$stats = [

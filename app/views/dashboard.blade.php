@@ -15,37 +15,47 @@ dashboard
 
 <div id="stats">
 
-<br>
-<?
-$day_views = array_pluck($stats['blog'], 'n');
-?>
-<h3>blog views (<?= array_sum($day_views) ?>)</h3>
+	<? $day_post_views = array_pluck($stats['posts'], 'n'); ?>
+	<div>
+		<h3>post views (<?= array_sum($day_post_views) ?>)</h3>
+		<svg id="post-stats" class="chart"></svg>
+	</div>
+
+	<? $day_views = array_pluck($stats['blog'], 'n'); ?>
+	<div>
+		<h3>blog views (<?= array_sum($day_views) ?>)</h3>
+		<svg id="blog-stats" class="chart"></svg>
+	</div>
 
 </div>
 
-<svg id="chart"></svg>
-
 <script>
-$(drawStats);
+$(draw);
 
-var data = <?=json_encode($stats['blog'])?>;
+var blogData = <?=json_encode($stats['blog'])?>;
+var postData = <?=json_encode($stats['posts'])?>;
 //data.reverse();
-
-var ns = _.pluck(data, 'n');
 
 var width = 200;
 var barHeight = 20;
 var days = 30;
 
-var x = d3.scale.linear()
-	.domain([0, d3.max(ns)])
-	.range([0, width]);
-
 var iformat = d3.time.format("%Y-%m-%d");
 var oformat = d3.time.format("%b %-d");
 
-function drawStats(){
-	var chart = d3.select("#chart")
+function draw() {
+	drawStats('#post-stats', postData);
+	drawStats('#blog-stats', blogData);
+}
+
+function drawStats(sel, data){
+	var ns = _.pluck(data, 'n');
+
+	var x = d3.scale.linear()
+		.domain([0, d3.max(ns)])
+		.range([0, width]);
+
+	var chart = d3.select(sel)
   	.attr("height", barHeight * days)
 		.attr("width", width+60);
 

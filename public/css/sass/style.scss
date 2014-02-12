@@ -450,7 +450,16 @@ div.post {
 
 /* dashboard */
 
-#chart {
+#stats {
+
+	> div {
+		width: 300px;
+		float: left;
+	}
+
+}
+
+.chart {
 	margin-top: 20px;
 
 	rect {
